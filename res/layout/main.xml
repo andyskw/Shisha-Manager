@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id ="@+id/main_llayout_host"
+    >
+    <TextView android:text="TextView" android:textSize="30sp"  android:gravity="center_vertical|center_horizontal" android:id="@+id/textView1" android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
+    <Chronometer android:text="Chronometer" android:gravity="center_vertical|center_horizontal" android:id="@+id/chronometer1" android:layout_width="fill_parent" android:layout_height="wrap_content"></Chronometer>
+
+    <LinearLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:gravity="bottom" android:layout_width="fill_parent">
+        <Button android:text="End Session" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="endSession"></Button>
+    </LinearLayout>
+</LinearLayout>
