@@ -74,7 +74,7 @@ public class main extends Activity {
     	long time = SystemClock.elapsedRealtime()-cm.getBase();
     	s.next(time);
     	cm.stop();
-    	Intent summary = IntentManager.getSessionSummaryIntent(this, s);
-    	startActivity(summary);
+    	Intent statistics = IntentManager.getStatisticsIntent(this, s);
+    	startActivity(statistics);
     }
 }

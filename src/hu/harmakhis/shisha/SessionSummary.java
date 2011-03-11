@@ -1,15 +1,12 @@
 package hu.harmakhis.shisha;
 
-import hu.harmakhis.shisha.charts.PlayerChart;
 import hu.harmakhis.shisha.entities.Player;
 import hu.harmakhis.shisha.entities.Session;
 
 import java.util.List;
 
 import android.app.Activity;
-import android.app.LocalActivityManager;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,13 +28,7 @@ public class SessionSummary extends Activity {
 		s = (Session) getIntent().getExtras().get("session");
 		ListView lv = (ListView) findViewById(R.id.sessionlist);
 		lv.setAdapter(new SummaryAdapter(this, R.layout.session_item, s.getPlayers()));
-		PlayerChart pc = new PlayerChart();
-		pc.setSession(s);
-		Intent i = pc.execute(this);
-		startActivity(i);
 
-		
-		
 	}
 
 	private class SummaryAdapter extends ArrayAdapter<Player> {

@@ -15,6 +15,7 @@
         </activity>
         <activity android:name="hu.harmakhis.shisha.SessionSummary" android:screenOrientation="portrait"></activity>
         <activity android:name="org.achartengine.GraphicalActivity"></activity>
+        <activity android:name=".Statistics"></activity>
 
     </application>
 </manifest>
