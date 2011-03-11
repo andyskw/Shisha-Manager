@@ -28,9 +28,9 @@ public class main extends Activity {
         setContentView(R.layout.main);
         s = new Session();
         s.setWarnTimeOut(60*1000*5);
-        s.addPlayer("Andy");
+        s.addPlayer("andy");
         s.addPlayer("flyerz");
-        
+
         cm = (Chronometer) findViewById(R.id.chronometer1);
         actPlayer= (TextView) findViewById(R.id.textView1);
         Button b = (Button) findViewById(R.id.button1);

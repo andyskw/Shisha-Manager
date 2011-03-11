@@ -14,6 +14,7 @@
             </intent-filter>
         </activity>
         <activity android:name="hu.harmakhis.shisha.SessionSummary" android:screenOrientation="portrait"></activity>
+        <activity android:name="org.achartengine.GraphicalActivity"></activity>
 
     </application>
 </manifest>

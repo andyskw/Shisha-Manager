@@ -44,4 +44,8 @@ public class Player implements Serializable {
 		rounds = 0;
 		history.clear();
 	}
+	
+	public Map<Integer, Long> getHistory() {
+		return history;
+	}
 }

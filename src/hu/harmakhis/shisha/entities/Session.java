@@ -44,4 +44,8 @@ public class Session implements Serializable {
 		return players;
 	}
 	
+	public Integer getRounds() {
+		return rounds;
+	}
+	
 }

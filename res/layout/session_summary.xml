@@ -6,4 +6,5 @@
     android:id ="@+id/session_summary_host"
     >
     <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/sessionlist"></ListView>
+    <LinearLayout android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/session_chartview"></LinearLayout>
 </LinearLayout>
