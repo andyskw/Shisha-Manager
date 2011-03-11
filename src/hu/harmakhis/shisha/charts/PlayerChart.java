@@ -82,9 +82,7 @@ public class PlayerChart extends AbstractChart {
 		int[] colors = new int[players.size()];
 		PointStyle[] styles = new PointStyle[players.size()];
 		Random r = new Random(555555);
-		for (i = 0; i < titles.length; i++) {
-			Color c = new Color();
-			
+		for (i = 0; i < titles.length; i++) {		
 			colors[i] = Color.rgb(r.nextInt(255), r.nextInt(255), r.nextInt(255));
 			styles[i] = PointStyle.CIRCLE;
 			Player p = players.get(i);
@@ -95,8 +93,8 @@ public class PlayerChart extends AbstractChart {
 			for (Integer time : history.keySet()) {
 				timing[u] = time;
 				double value = history.get(time).doubleValue();
-				playerstat[u] = value;
-				if (value > maxValue) { maxValue = value; }
+				playerstat[u] = value / 1000;
+				if (playerstat[u] > maxValue) { maxValue = playerstat[u]; }
 				u++;
 			}
 			x.add(timing);
@@ -110,14 +108,14 @@ public class PlayerChart extends AbstractChart {
 					.setFillPoints(true);
 		}
 		setChartSettings(renderer, "Shisha using times", "Round",
-				"Time", 0.5, 12.5, 0, maxValue, Color.LTGRAY, Color.LTGRAY);
+				"Time (sec)", 0.5, s.getRounds() + 0.5, 0, maxValue, Color.LTGRAY, Color.LTGRAY);
 		renderer.setXLabels(12);
 		renderer.setYLabels(10);
 		renderer.setShowGrid(true);
 		renderer.setXLabelsAlign(Align.RIGHT);
 		renderer.setYLabelsAlign(Align.RIGHT);
-		renderer.setPanLimits(new double[] { -10, 20, -10, 40 });
-		renderer.setZoomLimits(new double[] { -10, 20, -10, 40 });
+		//renderer.setPanLimits(new double[] { -10, 20, -10, 40 });
+		//renderer.setZoomLimits(new double[] { -10, 20, -10, 40 });
 		Intent intent = ChartFactory.getLineChartIntent(context, buildDataset(
 				titles, x, values), renderer, "Shisha using times");
 		return intent;
