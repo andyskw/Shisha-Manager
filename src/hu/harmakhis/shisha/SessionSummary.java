@@ -18,7 +18,9 @@ import android.widget.TextView;
 public class SessionSummary extends Activity {
 
 	private Session s;
-
+	private static int H = 1000*60*60;
+	private static int M = 1000*60;
+	private static int S = 1000;
 	// private MessageAdapter m_adapter;
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -54,7 +56,11 @@ public class SessionSummary extends Activity {
 				TextView sessitem_name = (TextView) v.findViewById(R.id.sessitem_name);
 				TextView sessitem_time = (TextView) v.findViewById(R.id.sessitem_time);
 				sessitem_name.setText(p.getName());
-				sessitem_time.setText(new Long(p.getSumPipeTime()).toString());
+				long sum = p.getSumPipeTime();
+				int h = (int) (sum / (H));
+				int m = (int) ((sum - h*H) / (M));
+				int s = (int) ((sum - h*H - m*M) / (S));
+				sessitem_time.setText(h + "h "+ m + "m " + s + "s");
 			}
 
 			return v;
