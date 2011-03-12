@@ -29,8 +29,8 @@ public class Statistics extends TabActivity {
 		PlayerChart pc = new PlayerChart();
 		pc.setSession(s);
 		Intent i = pc.execute(this);
-		setupTab(new TextView(this), "Statisztikák", R.drawable.icon, IntentManager.getSessionSummaryIntent(this, s));
-		setupTab(new TextView(this), "Pipahasználat", R.drawable.icon, i);
+		setupTab(new TextView(this), "Statistics", R.drawable.icon, IntentManager.getSessionSummaryIntent(this, s));
+		setupTab(new TextView(this), "Usage time per round", R.drawable.icon, i);
 	}
 	
 	@Override
