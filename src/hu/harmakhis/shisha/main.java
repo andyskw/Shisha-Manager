@@ -85,6 +85,7 @@ public class main extends Activity {
 		s.next(time);
 		cm.stop();
 		Intent statistics = IntentManager.getStatisticsIntent(this, s);
+		finish();
 		startActivity(statistics);
 	}
 }
