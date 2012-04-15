@@ -107,17 +107,15 @@ public class PlayerChart extends AbstractChart {
 			((XYSeriesRenderer) renderer.getSeriesRendererAt(i))
 					.setFillPoints(true);
 		}
-		setChartSettings(renderer, "Shisha using times", "Round",
+		setChartSettings(renderer, "Shisha usage times", "Round",
 				"Time (sec)", 0.5, s.getRounds() + 0.5, 0, maxValue, Color.LTGRAY, Color.LTGRAY);
 		renderer.setXLabels(12);
 		renderer.setYLabels(10);
 		renderer.setShowGrid(true);
 		renderer.setXLabelsAlign(Align.RIGHT);
 		renderer.setYLabelsAlign(Align.RIGHT);
-		//renderer.setPanLimits(new double[] { -10, 20, -10, 40 });
-		//renderer.setZoomLimits(new double[] { -10, 20, -10, 40 });
 		Intent intent = ChartFactory.getLineChartIntent(context, buildDataset(
-				titles, x, values), renderer, "Shisha using times");
+				titles, x, values), renderer, "Shisha usage times");
 		return intent;
 	}
 
