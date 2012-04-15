@@ -11,7 +11,8 @@ public class Session implements Serializable {
 	private Integer rounds;
 	private Integer currentPos;
 	private Integer warnTimeOut;
-	
+	private boolean started = false;
+
 	public Session() {
 		players = new ArrayList<Player>();
 		currentPos = 0;
@@ -19,13 +20,20 @@ public class Session implements Serializable {
 	}
 
 	public Player next(long timeElapsed) {
-		if (currentPos+1 > players.size()) {currentPos = 0; rounds++;}
+		
 		Player p = players.get(currentPos);
 		p.piped(rounds, timeElapsed);
 		players.set(currentPos, p);
-		return players.get(currentPos++);
+		if (currentPos + 2 > players.size()) {
+			currentPos = 0;
+			rounds++;
+		} else {
+			currentPos++;
+		}
+		return players.get(currentPos);
+
 	}
-	
+
 	public void addPlayer(String name) {
 		Player np = new Player();
 		np.setName(name);
@@ -39,13 +47,18 @@ public class Session implements Serializable {
 	public Integer getWarnTimeOut() {
 		return warnTimeOut;
 	}
-	
+
 	public List<Player> getPlayers() {
 		return players;
 	}
-	
+
 	public Integer getRounds() {
 		return rounds;
 	}
 	
+	public Player getInitialPlayer() {
+		currentPos = 0;
+		return players.get(currentPos);
+	}
+
 }
