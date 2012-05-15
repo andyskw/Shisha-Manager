@@ -108,7 +108,7 @@ public class PlayerChart extends AbstractChart {
 					.setFillPoints(true);
 		}
 		setChartSettings(renderer, "Shisha usage times", "Round",
-				"Time (sec)", 0.5, s.getRounds() + 0.5, 0, maxValue, Color.LTGRAY, Color.LTGRAY);
+				"Time (sec)", 0.0, s.getRounds() + 0.5, 0, maxValue, Color.LTGRAY, Color.LTGRAY);
 		renderer.setXLabels(12);
 		renderer.setYLabels(10);
 		renderer.setShowGrid(true);
