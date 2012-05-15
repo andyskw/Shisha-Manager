@@ -1,6 +1,8 @@
 package hu.harmakhis.shisha.utils;
 
+import hu.harmakhis.shisha.Main;
 import hu.harmakhis.shisha.SessionSummary;
+import hu.harmakhis.shisha.Start;
 import hu.harmakhis.shisha.Statistics;
 import hu.harmakhis.shisha.entities.Session;
 import android.app.Activity;
@@ -18,6 +20,11 @@ public class IntentManager {
 	public static Intent getStatisticsIntent(Activity host, Session s) {
 		Intent i =new Intent().setClass(host, Statistics.class);
 		i.putExtra("session", s);
+		return i;
+	}
+	
+	public static Intent getMainIntent(Activity host) {
+		Intent i =new Intent().setClass(host, Main.class);
 		return i;
 	}
 }

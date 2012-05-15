@@ -13,17 +13,20 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Chronometer.OnChronometerTickListener;
 
-public class main extends Activity {
+public class Main extends Activity {
 	/** Called when the activity is first created. */
 	private Session s;
 	private Chronometer cm;
 	private TextView actPlayer;
+	private Spinner sp;
 	LinearLayout ll;
 	private MediaPlayer mp;
 	private boolean started = false;
+	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

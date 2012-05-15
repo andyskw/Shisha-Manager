@@ -11,7 +11,6 @@ public class Session implements Serializable {
 	private Integer rounds;
 	private Integer currentPos;
 	private Integer warnTimeOut;
-	private boolean started = false;
 
 	public Session() {
 		players = new ArrayList<Player>();
