@@ -2,4 +2,7 @@
 <resources>
     <string name="hello">Hello World, main!</string>
     <string name="app_name">Shisha Manager</string>
+    <string name="newsession">New Session</string>
+    <string name="endsession">End Session</string>
+    <string name="pleaseclick">Please click anywhere on the screen to start the session!</string>
 </resources>

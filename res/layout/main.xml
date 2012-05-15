@@ -8,7 +8,26 @@
     <TextView android:text="TextView" android:textSize="30sp"  android:gravity="center_vertical|center_horizontal" android:id="@+id/textView1" android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
     <Chronometer android:text="Chronometer" android:gravity="center_vertical|center_horizontal" android:id="@+id/chronometer1" android:layout_width="fill_parent" android:layout_height="wrap_content"></Chronometer>
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="150dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="100dp"
+        android:gravity="bottom"
+        android:text="@string/pleaseclick"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="24sp" />
+
     <LinearLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:gravity="bottom" android:layout_width="fill_parent">
-        <Button android:text="End Session" android:id="@+id/button1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:onClick="endSession"></Button>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="endSession"
+            android:text="@string/endsession" >
+</Button>
+
     </LinearLayout>
 </LinearLayout>
