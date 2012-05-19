@@ -30,7 +30,7 @@ public class Start extends Activity {
 
 	private void startSession() {
 
-		Intent main = IntentManager.getMainIntent(this);
+		Intent main = IntentManager.getStartSessionIntent(this);
 		finish();
 		startActivity(main);
 	}
