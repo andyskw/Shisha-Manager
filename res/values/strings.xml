@@ -5,4 +5,10 @@
     <string name="newsession">New Session</string>
     <string name="endsession">End Session</string>
     <string name="pleaseclick">Please click anywhere on the screen to start the session!</string>
+    <string name="timeouttext">Timeout</string>
+    <string name="timeouthelp">Please set the time, as long as one member of the team can hold the Shisha within one round.</string>
+    <string name="defaulttimeout">30</string>
+    <string name="seconds">seconds</string>
+    <string name="userlist">Users</string>
+    <string name="adduser">Add</string>
 </resources>
