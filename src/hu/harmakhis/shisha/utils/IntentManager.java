@@ -7,6 +7,7 @@ import hu.harmakhis.shisha.Statistics;
 import hu.harmakhis.shisha.entities.Session;
 import android.app.Activity;
 import android.content.Intent;
+import android.view.View.OnClickListener;
 
 
 public class IntentManager {
@@ -31,5 +32,12 @@ public class IntentManager {
 	public static Intent getStartSessionIntent(Activity host) {
 		Intent i =new Intent().setClass(host, StartSession.class);
 		return i;
+	}
+
+	public static Intent getMainIntent(Activity host, Session s) {
+		Intent i = new Intent().setClass(host, Main.class);
+		i.putExtra("session", s);
+		return i;
+		
 	}
 }

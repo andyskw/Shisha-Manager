@@ -26,16 +26,18 @@ public class Main extends Activity {
 	LinearLayout ll;
 	private MediaPlayer mp;
 	private boolean started = false;
-	
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		s = new Session();
-		s.setWarnTimeOut(60 * 1000 * 5);
-		s.addPlayer("andy");
-		s.addPlayer("flyerz");
+		s = (Session) (getIntent().getExtras().get("session"));
+		if (s == null) {
+			s = new Session();
+			s.setWarnTimeOut(60 * 1000 * 5);
+			s.addPlayer("andy");
+			s.addPlayer("flyerz");
+		}
 		mp = MediaPlayer.create(this, R.raw.timeout);
 		cm = (Chronometer) findViewById(R.id.chronometer1);
 		actPlayer = (TextView) findViewById(R.id.textView1);

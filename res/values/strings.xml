@@ -11,4 +11,6 @@
     <string name="seconds">seconds</string>
     <string name="userlist">Users</string>
     <string name="adduser">Add</string>
+    <string name="button_startsession">Start Session</string>
+    <string name="adduser_helptext">Please tell us, who will be there in this session! Take care of the sitting order!</string>
 </resources>
