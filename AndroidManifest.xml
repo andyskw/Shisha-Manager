@@ -16,7 +16,6 @@
         <activity android:name="hu.harmakhis.shisha.SessionSummary" android:screenOrientation="portrait"></activity>
         <activity android:name="org.achartengine.GraphicalActivity"></activity>
         <activity android:name=".Statistics"></activity>
-        <activity android:name=".Start"></activity>
         <activity android:name=".StartSession"></activity>
         <activity android:name=".Main"></activity>
 
