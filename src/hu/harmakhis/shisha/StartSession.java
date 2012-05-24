@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class StartSession extends Activity {
 	Button addUserButton;
@@ -51,15 +52,29 @@ public class StartSession extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				Session s = new Session();
-				for (String name : names) {
-					s.addPlayer(name);
+				CharSequence cs = timeoutField.getText();
+				if (cs.length() != 0) {
+					if (!names.isEmpty()) {
+						Session s = new Session();
+						for (String name : names) {
+							s.addPlayer(name);
+						}
+						s.setWarnTimeOut(Integer.parseInt(timeoutField
+								.getText().toString()) * 1000);
+						Intent i = IntentManager.getMainIntent(
+								StartSession.this, s);
+						finish();
+						startActivity(i);
+					} else {
+						Toast.makeText(getApplicationContext(),
+								R.string.error_empty_user_list,
+								Toast.LENGTH_SHORT).show();
+					}
+				} else {
+					Toast.makeText(getApplicationContext(),
+							R.string.error_no_timeout_set,
+							Toast.LENGTH_SHORT).show();
 				}
-				s.setWarnTimeOut(Integer.parseInt(timeoutField.getText()
-						.toString()) * 1000);
-				Intent i = IntentManager.getMainIntent(StartSession.this, s);
-				finish();
-				startActivity(i);
 			}
 		});
 	}

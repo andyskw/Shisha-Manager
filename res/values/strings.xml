@@ -13,4 +13,6 @@
     <string name="adduser">Add</string>
     <string name="button_startsession">Start Session</string>
     <string name="adduser_helptext">Please tell us, who will be there in this session! Take care of the sitting order!</string>
+    <string name="error_empty_user_list">Please add at least one player, before starting the session!</string>
+    <string name="error_no_timeout_set">Please set the timeout!</string>
 </resources>
