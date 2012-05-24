@@ -23,6 +23,7 @@ public class Main extends Activity {
 	private Chronometer cm;
 	private TextView actPlayer;
 	private Spinner sp;
+	private TextView pleaseClick;
 	LinearLayout ll;
 	private MediaPlayer mp;
 	private boolean started = false;
@@ -41,6 +42,7 @@ public class Main extends Activity {
 		mp = MediaPlayer.create(this, R.raw.timeout);
 		cm = (Chronometer) findViewById(R.id.chronometer1);
 		actPlayer = (TextView) findViewById(R.id.textView1);
+		pleaseClick = (TextView) findViewById(R.id.pleaseClickTextView);
 		Button b = (Button) findViewById(R.id.button1);
 		b.setOnClickListener(new OnClickListener() {
 
@@ -55,9 +57,12 @@ public class Main extends Activity {
 			public void onClick(View v) {
 				if (!started) {
 					started = true;
+					pleaseClick.setText("");
 					cm.setBase(SystemClock.elapsedRealtime());
 					cm.start();
 				} else {
+					
+					
 					nextPlayer();
 				}
 			}

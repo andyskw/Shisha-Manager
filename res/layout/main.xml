@@ -9,7 +9,7 @@
     <Chronometer android:text="Chronometer" android:gravity="center_vertical|center_horizontal" android:id="@+id/chronometer1" android:layout_width="fill_parent" android:layout_height="wrap_content"></Chronometer>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/pleaseClickTextView"
         android:layout_width="wrap_content"
         android:layout_height="150dp"
         android:layout_gravity="bottom|center"
