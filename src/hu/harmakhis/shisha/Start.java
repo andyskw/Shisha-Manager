@@ -7,16 +7,18 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 public class Start extends Activity {
-	Button b;
+	LinearLayout ll;
 	/** Called when the activity is first created. */
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start);
-		b = (Button) findViewById(R.id.startButton);
-		b.setOnClickListener(new OnClickListener() {
+		ll = (LinearLayout) findViewById(R.id.start_llayout_host);
+		
+		ll.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View arg0) {
