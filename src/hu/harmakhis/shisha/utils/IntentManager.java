@@ -24,6 +24,7 @@ public class IntentManager {
 		return i;
 	}
 	
+	@Deprecated
 	public static Intent getMainIntent(Activity host) {
 		Intent i =new Intent().setClass(host, Main.class);
 		return i;
