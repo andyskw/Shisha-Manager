@@ -8,12 +8,13 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TextView;
 import android.widget.TabHost.TabSpec;
+import android.widget.TextView;
 
 
 public class Statistics extends TabActivity {
@@ -62,5 +63,15 @@ public class Statistics extends TabActivity {
 		iv.setImageDrawable(rajz);
 		
 		return view;
+	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)  {
+	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+	    	//OMITTED!
+	        return true;
+	    }
+
+	    return super.onKeyDown(keyCode, event);
 	}
 }

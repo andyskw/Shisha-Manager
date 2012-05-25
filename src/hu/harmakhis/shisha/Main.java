@@ -8,14 +8,15 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
+import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Chronometer.OnChronometerTickListener;
 
 public class Main extends Activity {
 	/** Called when the activity is first created. */
@@ -98,4 +99,15 @@ public class Main extends Activity {
 		finish();
 		startActivity(statistics);
 	}
+	
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)  {
+	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+	    	//OMITTED!
+	        return true;
+	    }
+
+	    return super.onKeyDown(keyCode, event);
+	}
+
 }

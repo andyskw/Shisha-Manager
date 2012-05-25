@@ -4,9 +4,9 @@ import hu.harmakhis.shisha.utils.IntentManager;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class Start extends Activity {
@@ -35,5 +35,23 @@ public class Start extends Activity {
 		Intent main = IntentManager.getStartSessionIntent(this);
 		finish();
 		startActivity(main);
+	}
+	
+	@Override
+	public void onBackPressed() {
+	
+		super.onBackPressed();
+	}
+
+
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)  {
+	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+	    	//OMITTED!
+	        return true;
+	    }
+	
+	    return super.onKeyDown(keyCode, event);
 	}
 }
