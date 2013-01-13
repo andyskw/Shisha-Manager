@@ -1,5 +1,7 @@
 package hu.harmakhis.shisha;
 
+
+
 import hu.harmakhis.shisha.entities.Session;
 import hu.harmakhis.shisha.utils.IntentManager;
 import android.app.Activity;
@@ -9,6 +11,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -130,4 +133,16 @@ public class Main extends Activity {
 	    return super.onKeyDown(keyCode, event);
 	}
 
+	
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_donate:
+			startActivity(new Intent(Main.this, Donate.class));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
 }

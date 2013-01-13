@@ -10,6 +10,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TabHost;
@@ -73,5 +75,22 @@ public class Statistics extends TabActivity {
 	    }
 
 	    return super.onKeyDown(keyCode, event);
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu_main, menu);
+		return true;
+	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.menu_donate:
+			startActivity(new Intent(Statistics.this, Donate.class));
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
 	}
 }
