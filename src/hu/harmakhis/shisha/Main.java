@@ -63,15 +63,21 @@ public class Main extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if (pauseTime == 0) {
+				if (pauseTime == 0 && started) {
 				pauseTime = SystemClock.elapsedRealtime();
 				cm.stop();
+				pause.setText(R.string.resume);
+				pleaseClick.setText(R.string.paused_infotext);
 				cm.setKeepScreenOn(false);
 				} else {
+					if (started) {
 					cm.setBase(SystemClock.elapsedRealtime() - (pauseTime - cm.getBase()));
 					cm.setKeepScreenOn(true);
 					cm.start();
 					pauseTime = 0;
+					pause.setText(R.string.pause);
+					pleaseClick.setText("");
+					}
 				}
 				
 			}

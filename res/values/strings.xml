@@ -17,6 +17,8 @@
     <string name="error_no_timeout_set">Please set the timeout!</string>
     <string name="please_tap_to_start_new_session">Please tap anywhere on the screen to start a new session!</string>
     <string name="pause">Pause</string>
+    <string name="paused_infotext">Session paused. Please click on \'Resume\' to continue!</string>
+    <string name="resume">Resume</string>
     <string name="donate_title">Donate me!</string>
     <string name="menu_donate">Donate!</string>
     <string name="donate_text">If you like this application, and you would like me to make updates, please invite me to a Shisha session by sending me a donation via PayPal. :)</string>
