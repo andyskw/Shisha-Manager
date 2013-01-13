@@ -125,6 +125,9 @@ public class Main extends Activity {
 	}
 
 	private void endSession() {
+		if (pauseTime != 0) {
+			cm.setBase(SystemClock.elapsedRealtime() - (pauseTime - cm.getBase()));
+		}
 		long time = SystemClock.elapsedRealtime() - cm.getBase();
 		s.next(time);
 		cm.stop();
