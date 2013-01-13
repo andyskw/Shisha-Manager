@@ -66,8 +66,10 @@ public class Main extends Activity {
 				if (pauseTime == 0) {
 				pauseTime = SystemClock.elapsedRealtime();
 				cm.stop();
+				cm.setKeepScreenOn(false);
 				} else {
 					cm.setBase(SystemClock.elapsedRealtime() - (pauseTime - cm.getBase()));
+					cm.setKeepScreenOn(true);
 					cm.start();
 					pauseTime = 0;
 				}
@@ -83,6 +85,7 @@ public class Main extends Activity {
 					started = true;
 					pleaseClick.setText("");
 					cm.setBase(SystemClock.elapsedRealtime());
+					cm.setKeepScreenOn(true);
 					cm.start();
 				} else {
 					
