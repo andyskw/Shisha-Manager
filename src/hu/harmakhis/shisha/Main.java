@@ -27,6 +27,9 @@ public class Main extends Activity {
 	private TextView pleaseClick;
 	LinearLayout ll;
 	private MediaPlayer mp;
+	Button end_session;
+	Button pause;
+	private long pauseTime;
 	private boolean started = false;
 
 	@Override
@@ -44,14 +47,31 @@ public class Main extends Activity {
 		cm = (Chronometer) findViewById(R.id.chronometer1);
 		actPlayer = (TextView) findViewById(R.id.textView1);
 		pleaseClick = (TextView) findViewById(R.id.pleaseClickTextView);
-		Button b = (Button) findViewById(R.id.button1);
-		b.setOnClickListener(new OnClickListener() {
+		end_session = (Button) findViewById(R.id.btn_endsession);
+		end_session.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				endSession();
 
 			}
 		});
+		pause = (Button) findViewById(R.id.btn_pause);
+		pause.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (pauseTime == 0) {
+				pauseTime = SystemClock.elapsedRealtime();
+				cm.stop();
+				} else {
+					cm.setBase(SystemClock.elapsedRealtime() - (pauseTime - cm.getBase()));
+					cm.start();
+					pauseTime = 0;
+				}
+				
+			}
+		});
+		
 		ll = (LinearLayout) findViewById(R.id.main_llayout_host);
 		ll.setOnClickListener(new OnClickListener() {
 

@@ -22,11 +22,17 @@
     <LinearLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:gravity="bottom" android:layout_width="fill_parent">
 
         <Button
-            android:id="@+id/button1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/btn_endsession"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
             android:onClick="endSession"
             android:text="@string/endsession" />
+
+        <Button
+            android:id="@+id/btn_pause"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:text="@string/pause" />
 
     </LinearLayout>
 </LinearLayout>

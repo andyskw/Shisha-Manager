@@ -16,4 +16,5 @@
     <string name="error_empty_user_list">Please add at least one player, before starting the session!</string>
     <string name="error_no_timeout_set">Please set the timeout!</string>
     <string name="please_tap_to_start_new_session">Please tap anywhere on the screen to start a new session!</string>
+    <string name="pause">Pause</string>
 </resources>
