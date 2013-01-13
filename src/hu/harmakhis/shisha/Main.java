@@ -88,9 +88,10 @@ public class Main extends Activity {
 					cm.setKeepScreenOn(true);
 					cm.start();
 				} else {
+					if (pauseTime == 0) {
 					
-					
-					nextPlayer();
+						nextPlayer();
+					}
 				}
 			}
 		});
