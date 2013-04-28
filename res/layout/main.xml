@@ -19,12 +19,14 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="24sp" />
 
-    <LinearLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:gravity="bottom" android:layout_width="fill_parent">
+    <RelativeLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:gravity="bottom" android:layout_width="fill_parent">
 
         <Button
             android:id="@+id/btn_endsession"
             android:layout_width="160dp"
             android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
             android:onClick="endSession"
             android:text="@string/endsession" />
 
@@ -32,7 +34,9 @@
             android:id="@+id/btn_pause"
             android:layout_width="160dp"
             android:layout_height="80dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
             android:text="@string/pause" />
 
-    </LinearLayout>
+    </RelativeLayout>
 </LinearLayout>
