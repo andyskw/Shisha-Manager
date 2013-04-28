@@ -69,8 +69,10 @@ public class Statistics extends TabActivity {
 	
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)  {
-	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-	    	//OMITTED!
+	    if (keyCode == KeyEvent.KEYCODE_BACK) {
+			Intent main = IntentManager.getStartSessionIntent(this);
+			finish();
+			startActivity(main);
 	        return true;
 	    }
 
