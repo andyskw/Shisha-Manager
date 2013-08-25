@@ -3,7 +3,8 @@
     android:id="@+id/start_llayout_host"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" 
+    android:background="@drawable/app_bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -54,7 +55,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:background="#30000000">
 
         <EditText
             android:id="@+id/timeoutField"
@@ -79,6 +81,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
         android:text="@string/userlist"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
@@ -87,11 +90,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/adduser_helptext"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:textAppearance="?android:attr/textAppearanceSmall" 
+        android:background="#50000000" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:background="#50000000">
 
         <EditText
             android:id="@+id/newUserName"
@@ -112,7 +117,8 @@
     <ListView
         android:id="@+id/userList"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+        android:background="#50000000">
     </ListView>
 
 </LinearLayout>

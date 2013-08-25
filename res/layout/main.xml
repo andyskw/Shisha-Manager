@@ -4,6 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:id ="@+id/main_llayout_host"
+    android:background="@drawable/app_bg"
     >
     <TextView android:text="TextView" android:textSize="30sp"  android:gravity="center_vertical|center_horizontal" android:id="@+id/textView1" android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
     <Chronometer android:text="Chronometer" android:gravity="center_vertical|center_horizontal" android:id="@+id/chronometer1" android:layout_width="fill_parent" android:layout_height="wrap_content"></Chronometer>
@@ -19,24 +20,38 @@
         android:textColor="@android:color/darker_gray"
         android:textSize="24sp" />
 
-    <RelativeLayout android:id="@+id/linearLayout1" android:layout_height="fill_parent" android:gravity="bottom" android:layout_width="fill_parent">
+    <RelativeLayout android:id="@+id/linearLayout1" 
+        android:layout_height="fill_parent" 
+        android:gravity="bottom" 
+        android:layout_width="fill_parent"
+        
+        android:scaleType="centerCrop"
+        >
 
-        <Button
-            android:id="@+id/btn_endsession"
-            android:layout_width="160dp"
-            android:layout_height="80dp"
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="90dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:onClick="endSession"
-            android:text="@string/endsession" />
+            android:background="#30000000" >
 
-        <Button
-            android:id="@+id/btn_pause"
-            android:layout_width="160dp"
-            android:layout_height="80dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentRight="true"
-            android:text="@string/pause" />
+            <Button
+                android:id="@+id/btn_endsession"
+                android:layout_width="160dp"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:onClick="endSession"
+                android:text="@string/endsession" />
+
+            <Button
+                android:id="@+id/btn_pause"
+                android:layout_width="160dp"
+                android:layout_height="80dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:text="@string/pause" />
+        </RelativeLayout>
 
     </RelativeLayout>
 </LinearLayout>
