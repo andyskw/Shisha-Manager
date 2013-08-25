@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.vilagmegvaltas.shisha.charts;
+package com.vilagmegvaltas.shisha;
 
 
 import java.util.ArrayList;
@@ -26,18 +26,28 @@ import org.achartengine.chart.PointStyle;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import com.vilagmegvaltas.shisha.R;
+import com.vilagmegvaltas.shisha.charts.AbstractChart;
 import com.vilagmegvaltas.shisha.entities.Player;
 import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
+
+
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint.Align;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import android.view.View;
+import android.widget.LinearLayout;
 
 /**
  * Average temperature demo chart.
  */
-public class PlayerChart extends AbstractChart {
+public class UsageSummary extends AbstractChart {
+	private LinearLayout ll;
 	private Session s;
 
 	/**
@@ -45,22 +55,16 @@ public class PlayerChart extends AbstractChart {
 	 * 
 	 * @return the chart name
 	 */
-	public String getName() {
-		return "Player chart";
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		s = (Session) (getIntent().getExtras().get("session"));
+		setContentView(R.layout.session_chart);
+		ll = (LinearLayout) findViewById(R.id.contentOfChart);
+		ll.addView(execute(this));
+		super.onCreate(savedInstanceState);
 	}
 
-	/**
-	 * Returns the chart description.
-	 * 
-	 * @return the chart description
-	 */
-	public String getDesc() {
-		return "";
-	}
-
-	public void setSession(Session sess) {
-		s = sess;
-	}
 
 	/**
 	 * Executes the chart demo.
@@ -69,7 +73,7 @@ public class PlayerChart extends AbstractChart {
 	 *            the context
 	 * @return the built intent
 	 */
-	public Intent execute(Context context) {
+	private View execute(Context context) {
 		List<Player> players = s.getPlayers();
 		String[] titles = new String[players.size()];
 		int i = 0;
@@ -115,9 +119,21 @@ public class PlayerChart extends AbstractChart {
 		renderer.setShowGrid(true);
 		renderer.setXLabelsAlign(Align.RIGHT);
 		renderer.setYLabelsAlign(Align.RIGHT);
-		Intent intent = ChartFactory.getLineChartIntent(context, buildDataset(
-				titles, x, values), renderer, "Shisha usage times");
-		return intent;
+		return ChartFactory.getLineChartView(context, buildDataset(
+				titles, x, values), renderer);
+
 	}
 
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event)  {
+	    if (keyCode == KeyEvent.KEYCODE_BACK) {
+			Intent main = IntentManager.getStartSessionIntent(this);
+			finish();
+			startActivity(main);
+	        return true;
+	    }
+
+	    return super.onKeyDown(keyCode, event);
+	}
+	
 }

@@ -1,6 +1,5 @@
 package com.vilagmegvaltas.shisha;
 
-import com.vilagmegvaltas.shisha.charts.PlayerChart;
 import com.vilagmegvaltas.shisha.entities.Session;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
@@ -30,9 +29,9 @@ public class Statistics extends TabActivity {
 	private void setupTabHost() {
 		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
 		mTabHost.setup();
-		PlayerChart pc = new PlayerChart();
-		pc.setSession(s);
-		Intent i = pc.execute(this);
+		
+		Intent i = new Intent(this, UsageSummary.class);
+		i.putExtra("session", s);
 		setupTab(new TextView(this), "Statistics", R.drawable.statistics, IntentManager.getSessionSummaryIntent(this, s));
 		setupTab(new TextView(this), "Usage time per round", R.drawable.graph, i);
 	}

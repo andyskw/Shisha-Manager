@@ -15,11 +15,11 @@
             </intent-filter>
         </activity>
         <activity android:name="com.vilagmegvaltas.shisha.SessionSummary" android:screenOrientation="portrait"></activity>
-        <activity android:name="org.achartengine.GraphicalActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".Statistics" android:screenOrientation="portrait"></activity>
         <activity android:name=".StartSession" android:screenOrientation="portrait"></activity>
         <activity android:name=".Main" android:screenOrientation="portrait"></activity>
         <activity android:name=".Donate" android:screenOrientation="portrait" ></activity>
+        <activity android:name="com.vilagmegvaltas.shisha.UsageSummary"></activity>
 
     </application>
 </manifest>

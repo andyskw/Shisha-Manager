@@ -29,10 +29,12 @@ import org.achartengine.renderer.SimpleSeriesRenderer;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import android.app.Activity;
+
 /**
  * An abstract class for the demo charts to extend.
  */
-public abstract class AbstractChart implements IChart {
+public abstract class AbstractChart extends Activity  {
 
   /**
    * Builds an XY multiple dataset using the provided values.
@@ -40,7 +42,7 @@ public abstract class AbstractChart implements IChart {
    * @param titles the series titles
    * @param xValues the values for the X axis
    * @param yValues the values for the Y axis
-   * @return the XY multiple dataset
+   * @return the XY multiple da taset
    */
   protected XYMultipleSeriesDataset buildDataset(String[] titles, List<double[]> xValues,
       List<double[]> yValues) {
