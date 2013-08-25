@@ -1,10 +1,11 @@
-package hu.harmakhis.shisha.utils;
+package com.vilagmegvaltas.shisha.utils;
 
-import hu.harmakhis.shisha.Main;
-import hu.harmakhis.shisha.SessionSummary;
-import hu.harmakhis.shisha.StartSession;
-import hu.harmakhis.shisha.Statistics;
-import hu.harmakhis.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.Main;
+import com.vilagmegvaltas.shisha.SessionSummary;
+import com.vilagmegvaltas.shisha.StartSession;
+import com.vilagmegvaltas.shisha.Statistics;
+import com.vilagmegvaltas.shisha.entities.Session;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View.OnClickListener;

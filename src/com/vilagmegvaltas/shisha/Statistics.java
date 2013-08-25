@@ -1,8 +1,9 @@
-package hu.harmakhis.shisha;
+package com.vilagmegvaltas.shisha;
 
-import hu.harmakhis.shisha.charts.PlayerChart;
-import hu.harmakhis.shisha.entities.Session;
-import hu.harmakhis.shisha.utils.IntentManager;
+import com.vilagmegvaltas.shisha.charts.PlayerChart;
+import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
+
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;

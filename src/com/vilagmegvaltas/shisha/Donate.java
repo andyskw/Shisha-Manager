@@ -1,4 +1,4 @@
-package hu.harmakhis.shisha;
+package com.vilagmegvaltas.shisha;
 
 
 

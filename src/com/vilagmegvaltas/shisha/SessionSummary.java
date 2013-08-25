@@ -1,10 +1,11 @@
-package hu.harmakhis.shisha;
+package com.vilagmegvaltas.shisha;
 
-import hu.harmakhis.shisha.entities.Player;
-import hu.harmakhis.shisha.entities.Session;
-import hu.harmakhis.shisha.utils.IntentManager;
 
 import java.util.List;
+
+import com.vilagmegvaltas.shisha.entities.Player;
+import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 import android.app.Activity;
 import android.content.Context;

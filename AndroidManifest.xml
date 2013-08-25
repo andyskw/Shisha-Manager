@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="hu.harmakhis.shisha"
+      package="com.vilagmegvaltas.shisha"
       android:versionCode="1"
       android:versionName="1.0">
     <uses-sdk android:minSdkVersion="10" />
@@ -14,7 +14,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="hu.harmakhis.shisha.SessionSummary" android:screenOrientation="portrait"></activity>
+        <activity android:name="com.vilagmegvaltas.shisha.SessionSummary" android:screenOrientation="portrait"></activity>
         <activity android:name="org.achartengine.GraphicalActivity" android:screenOrientation="portrait"></activity>
         <activity android:name=".Statistics" android:screenOrientation="portrait"></activity>
         <activity android:name=".StartSession" android:screenOrientation="portrait"></activity>

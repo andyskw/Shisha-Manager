@@ -1,7 +1,8 @@
-package hu.harmakhis.shisha;
+package com.vilagmegvaltas.shisha;
 
 
-import hu.harmakhis.shisha.utils.IntentManager;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

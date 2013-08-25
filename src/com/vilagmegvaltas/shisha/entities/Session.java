@@ -1,4 +1,4 @@
-package hu.harmakhis.shisha.entities;
+package com.vilagmegvaltas.shisha.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
