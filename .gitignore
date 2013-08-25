@@ -1,2 +1,3 @@
 bin/*
 gen/hu/harmakhis/shisha/R.java
+src/com/vilagmegvaltas/shisha/utils/FlurryAPIKeyContainer.java

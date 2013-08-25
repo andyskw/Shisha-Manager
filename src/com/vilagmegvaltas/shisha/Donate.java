@@ -2,6 +2,9 @@ package com.vilagmegvaltas.shisha;
 
 
 
+import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -17,13 +20,14 @@ public class Donate extends Activity {
 	@Override
 	protected void onStart() {
 		super.onStart();
+		FlurryAgent.onStartSession(this, FlurryAPIKeyContainer.API_KEY);
 		
 	}
 	
 	@Override
 	protected void onStop() {
 		super.onStop();
-
+		FlurryAgent.onEndSession(this);
 	}
 	
 	@Override

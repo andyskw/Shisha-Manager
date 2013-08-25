@@ -1,6 +1,8 @@
 package com.vilagmegvaltas.shisha;
 
 
+import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 import android.app.Activity;
@@ -76,4 +78,16 @@ public class Start extends Activity {
 		}
 	}
 	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		FlurryAgent.onStartSession(this, FlurryAPIKeyContainer.API_KEY);
+	}
+
+	@Override
+	protected void onStop()
+	{
+		super.onStop();		
+		FlurryAgent.onEndSession(this);
+	}
 }

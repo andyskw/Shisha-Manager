@@ -26,10 +26,12 @@ import org.achartengine.chart.PointStyle;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import com.flurry.android.FlurryAgent;
 import com.vilagmegvaltas.shisha.R;
 import com.vilagmegvaltas.shisha.charts.AbstractChart;
 import com.vilagmegvaltas.shisha.entities.Player;
 import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 
@@ -136,4 +138,16 @@ public class UsageSummary extends AbstractChart {
 	    return super.onKeyDown(keyCode, event);
 	}
 	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		FlurryAgent.onStartSession(this, FlurryAPIKeyContainer.API_KEY);
+	}
+
+	@Override
+	protected void onStop()
+	{
+		super.onStop();		
+		FlurryAgent.onEndSession(this);
+	}
 }

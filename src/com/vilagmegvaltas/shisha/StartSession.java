@@ -3,7 +3,9 @@ package com.vilagmegvaltas.shisha;
 
 import java.util.ArrayList;
 
+import com.flurry.android.FlurryAgent;
 import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 import android.app.Activity;
@@ -108,5 +110,18 @@ public class StartSession extends Activity {
 		default:
 			return super.onOptionsItemSelected(item);
 		}
+	}
+	
+	@Override
+	protected void onStart() {
+		super.onStart();
+		FlurryAgent.onStartSession(this, FlurryAPIKeyContainer.API_KEY);
+	}
+
+	@Override
+	protected void onStop()
+	{
+		super.onStop();		
+		FlurryAgent.onEndSession(this);
 	}
 }
