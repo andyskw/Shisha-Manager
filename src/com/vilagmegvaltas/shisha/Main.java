@@ -2,16 +2,15 @@ package com.vilagmegvaltas.shisha;
 
 
 
-import com.flurry.android.FlurryAgent;
-import com.vilagmegvaltas.shisha.entities.Session;
-import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
-import com.vilagmegvaltas.shisha.utils.IntentManager;
-
 import android.app.Activity;
+import android.app.KeyguardManager;
+import android.app.KeyguardManager.KeyguardLock;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
 import android.view.KeyEvent;
 import android.view.MenuItem;
@@ -23,6 +22,11 @@ import android.widget.Chronometer.OnChronometerTickListener;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 public class Main extends Activity {
 	/** Called when the activity is first created. */
@@ -37,7 +41,9 @@ public class Main extends Activity {
 	Button pause;
 	private long pauseTime;
 	private boolean started = false;
-
+	KeyguardManager km;
+	KeyguardLock newKeyguardLock;
+	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -49,6 +55,8 @@ public class Main extends Activity {
 			s.addPlayer("andy");
 			s.addPlayer("flyerz");
 		}
+		km = (KeyguardManager)getSystemService(Activity.KEYGUARD_SERVICE);
+		newKeyguardLock = km.newKeyguardLock("Shisha"); 
 		mp = MediaPlayer.create(this, R.raw.timeout);
 		cm = (Chronometer) findViewById(R.id.chronometer1);
 		actPlayer = (TextView) findViewById(R.id.textView1);
@@ -71,11 +79,9 @@ public class Main extends Activity {
 				cm.stop();
 				pause.setText(R.string.resume);
 				pleaseClick.setText(R.string.paused_infotext);
-				cm.setKeepScreenOn(false);
 				} else {
 					if (started) {
 					cm.setBase(SystemClock.elapsedRealtime() - (pauseTime - cm.getBase()));
-					cm.setKeepScreenOn(true);
 					cm.start();
 					pauseTime = 0;
 					pause.setText(R.string.pause);
@@ -94,12 +100,13 @@ public class Main extends Activity {
 					started = true;
 					pleaseClick.setText("");
 					cm.setBase(SystemClock.elapsedRealtime());
-					cm.setKeepScreenOn(true);
 					cm.start();
 				} else {
 					if (pauseTime == 0) {
 					
 						nextPlayer();
+						cm.setKeepScreenOn(false);
+						
 					}
 				}
 			}
@@ -109,6 +116,13 @@ public class Main extends Activity {
 				long time = SystemClock.elapsedRealtime() - cm.getBase();
 				if (time > s.getWarnTimeOut()) {
 					cm.setTextColor(Color.RED);
+					newKeyguardLock.disableKeyguard();
+					WakeLock screenLock = ((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(
+						     PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "TAG");
+						screenLock.acquire();
+						screenLock.release();
+					cm.setKeepScreenOn(true);
+					
 					if (!mp.isPlaying())
 						mp.start();
 				}
@@ -171,8 +185,10 @@ public class Main extends Activity {
 	@Override
 	protected void onStop()
 	{
+		newKeyguardLock.reenableKeyguard();
 		super.onStop();		
 		FlurryAgent.onEndSession(this);
 	}
+	
 	
 }
