@@ -9,6 +9,8 @@ import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
@@ -88,7 +90,26 @@ public class StartSession extends Activity {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event)  {
 	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-	    	//OMITTED!
+	    	AlertDialog.Builder adb= new AlertDialog.Builder(this);
+	    	adb.setTitle("Exit application");
+	    	adb.setMessage("Are you sure you want to quit?");
+	    	adb.setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					StartSession.this.finish();
+					
+				}
+			}).setNegativeButton("No", new DialogInterface.OnClickListener() {
+				
+				@Override
+				public void onClick(DialogInterface dialog, int which) {
+					dialog.cancel();
+					
+				}
+			});
+	    	AlertDialog dialog = adb.create();
+	    	dialog.show();
 	        return true;
 	    }
 
