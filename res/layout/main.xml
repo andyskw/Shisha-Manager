@@ -6,7 +6,15 @@
     android:id ="@+id/main_llayout_host"
     android:background="@drawable/app_bg"
     >
-    <TextView android:text="TextView" android:textSize="30sp"  android:gravity="center_vertical|center_horizontal" android:id="@+id/textView1" android:layout_width="fill_parent" android:layout_height="wrap_content"></TextView>
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="TextView"
+        android:textSize="45sp" >
+</TextView>
     <Chronometer android:text="Chronometer" android:gravity="center_vertical|center_horizontal" android:id="@+id/chronometer1" android:layout_width="fill_parent" android:layout_height="wrap_content"></Chronometer>
 
     <TextView
