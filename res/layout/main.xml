@@ -15,7 +15,15 @@
         android:text="TextView"
         android:textSize="45sp" >
 </TextView>
-    <Chronometer android:text="Chronometer" android:gravity="center_vertical|center_horizontal" android:id="@+id/chronometer1" android:layout_width="fill_parent" android:layout_height="wrap_content"></Chronometer>
+
+    <Chronometer
+        android:id="@+id/chronometer1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Chronometer"
+        android:textSize="26sp" >
+</Chronometer>
 
     <TextView
         android:id="@+id/pleaseClickTextView"
