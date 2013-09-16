@@ -158,6 +158,9 @@ public class Main extends Activity {
 	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 	    	//OMITTED!
 	        return true;
+	    } else if (keyCode == KeyEvent.KEYCODE_CAMERA) {
+	    	nextPlayer();
+	    	
 	    }
 
 	    return super.onKeyDown(keyCode, event);
