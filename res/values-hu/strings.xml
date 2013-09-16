@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="hello">Hello World, main!</string>
+    <string name="app_name">Shisha Manager</string>
+    <string name="newsession">Új pipázás</string>
+    <string name="endsession">Pipázás vége</string>
+    <string name="pleaseclick">Kérlek, kattints bárhova a kijelzőn a kezdéshez!</string>
+    <string name="timeouttext">Időlimit</string>
+    <string name="timeouthelp">Kérlek, add meg azt a maximális időtartamot - másodspercben -, amíg ott lehet valakinél a pipa egy körön belül.</string>
+    <string name="defaulttimeout">120</string>
+    <string name="seconds">másodperc</string>
+    <string name="userlist">Pipázók</string>
+    <string name="adduser">Hozzáadás</string>
+    <string name="button_startsession">Kezdés</string>
+    <string name="adduser_helptext">Kérlek, add meg, hogy kik vesznek részt a pipázáson! Figyelj a továbbadás sorrendjére!</string>
+    <string name="error_empty_user_list">Kérlek, vegyél fel legalább egy pipázót, mielőtt továbbhaladnál!</string>
+    <string name="error_no_timeout_set">Kérlek, add meg az időlimitet!</string>
+    <string name="please_tap_to_start_new_session">A kezdéshez kattints bárhova a kijelzőn!</string>
+    <string name="pause">Szünet</string>
+    <string name="paused_infotext">Pipázás szüneteltetve. A folytatáshoz kattints a \'Folytatás\' gombra!</string>
+    <string name="resume">Folytatás</string>
+    <string name="donate_title">Adakozás</string>
+    <string name="menu_donate">Adakozz!</string>
+    <string name="donate_text">Ha tetszett az alkalmazás, és szeretnéd, ha a későbbiekben is lennének frissítései, kérlek, hívj meg egy pipázásra a PayPalen keresztül. :)</string>
+    <string name="exit_app">Kilépés</string>
+    <string name="areyousure_exit">Biztosan ki szeretnél lépni?</string>
+    <string name="yes">Igen</string>
+    <string name="nope">Nem</string>
+    <string name="statistics">Statisztika</string>
+    <string name="usageRounds">Körönkénti pipahasználat</string>
+    <string name="usageTimes">Pipahasználat ideje</string>
+    <string name="round">Kör</string>
+    <string name="timesec">Idő (másodperc)</string>
+</resources>
