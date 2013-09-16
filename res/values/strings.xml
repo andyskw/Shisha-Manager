@@ -22,5 +22,13 @@
     <string name="donate_title">Donate me!</string>
     <string name="menu_donate">Donate!</string>
     <string name="donate_text">If you like this application, and you would like me to make updates, please invite me to a Shisha session by sending me a donation via PayPal. :)</string>
-    
+    <string name="exit_app">Exit application</string>
+    <string name="areyousure_exit">Are you sure you want to quit?</string>
+    <string name="yes">Yes</string>
+    <string name="nope">Nope</string>
+    <string name="statistics">Statistics</string>
+    <string name="usageRounds">Usage times per round</string>
+    <string name="usageTimes">Shisha usage times</string>
+    <string name="round">Round</string>
+    <string name="timesec">Time (sec)</string>
 </resources>

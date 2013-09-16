@@ -91,16 +91,16 @@ public class StartSession extends Activity {
 	public boolean onKeyDown(int keyCode, KeyEvent event)  {
 	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
 	    	AlertDialog.Builder adb= new AlertDialog.Builder(this);
-	    	adb.setTitle("Exit application");
-	    	adb.setMessage("Are you sure you want to quit?");
-	    	adb.setCancelable(false).setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+	    	adb.setTitle(R.string.exit_app);
+	    	adb.setMessage(R.string.areyousure_exit);
+	    	adb.setCancelable(false).setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					StartSession.this.finish();
 					
 				}
-			}).setNegativeButton("No", new DialogInterface.OnClickListener() {
+			}).setNegativeButton(R.string.nope, new DialogInterface.OnClickListener() {
 				
 				@Override
 				public void onClick(DialogInterface dialog, int which) {

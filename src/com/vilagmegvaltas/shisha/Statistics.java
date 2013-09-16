@@ -34,8 +34,8 @@ public class Statistics extends TabActivity {
 		
 		Intent i = new Intent(this, UsageSummary.class);
 		i.putExtra("session", s);
-		setupTab(new TextView(this), "Statistics", R.drawable.statistics, IntentManager.getSessionSummaryIntent(this, s));
-		setupTab(new TextView(this), "Usage time per round", R.drawable.graph, i);
+		setupTab(new TextView(this), getString(R.string.statistics), R.drawable.statistics, IntentManager.getSessionSummaryIntent(this, s));
+		setupTab(new TextView(this), getString(R.string.usageRounds), R.drawable.graph, i);
 	}
 	
 	@Override

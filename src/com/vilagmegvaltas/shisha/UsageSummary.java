@@ -114,8 +114,8 @@ public class UsageSummary extends AbstractChart {
 			((XYSeriesRenderer) renderer.getSeriesRendererAt(i))
 					.setFillPoints(true);
 		}
-		setChartSettings(renderer, "Shisha usage times", "Round",
-				"Time (sec)", 0.0, s.getRounds() + 0.5, 0, maxValue+maxValue*0.2, Color.LTGRAY, Color.LTGRAY);
+		setChartSettings(renderer, getString(R.string.usageTimes), getString(R.string.round),
+				getString(R.string.timesec), 0.0, s.getRounds() + 0.5, 0, maxValue+maxValue*0.2, Color.LTGRAY, Color.LTGRAY);
 		renderer.setXLabels(12);
 		renderer.setYLabels(10);
 		renderer.setShowGrid(true);
