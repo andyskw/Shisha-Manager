@@ -2,11 +2,8 @@ package com.vilagmegvaltas.shisha;
 
 
 import java.util.ArrayList;
-
-import com.flurry.android.FlurryAgent;
-import com.vilagmegvaltas.shisha.entities.Session;
-import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
-import com.vilagmegvaltas.shisha.utils.IntentManager;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -23,6 +20,11 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 public class StartSession extends Activity {
 	Button addUserButton;
@@ -71,6 +73,10 @@ public class StartSession extends Activity {
 								.getText().toString()) * 1000);
 						Intent i = IntentManager.getMainIntent(
 								StartSession.this, s);
+						Map<String, String> params = new HashMap<String, String>();
+						params.put("user_count", String.valueOf(s.getPlayers().size()));
+						params.put("warntimeout", String.valueOf(s.getWarnTimeOut()));
+						FlurryAgent.logEvent("Shisha usages", params);
 						finish();
 						startActivity(i);
 					} else {
