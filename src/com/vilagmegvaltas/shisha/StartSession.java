@@ -1,12 +1,13 @@
 package com.vilagmegvaltas.shisha;
 
-
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -43,7 +44,7 @@ public class StartSession extends Activity {
 		lv = (ListView) findViewById(R.id.userList);
 		tv = (TextView) findViewById(R.id.newUserName);
 		timeoutField = (TextView) findViewById(R.id.timeoutField);
-		lv.setAdapter(new ArrayAdapter<String>(this,
+		lv.setAdapter(new NameArrayAdapter(this,
 				android.R.layout.simple_list_item_1, names));
 		addUserButton.setOnClickListener(new OnClickListener() {
 
@@ -52,8 +53,7 @@ public class StartSession extends Activity {
 				if (tv.getText() != null && tv.getText().length() > 0) {
 					names.add(tv.getText().toString());
 					tv.setText("");
-					((ArrayAdapter<String>) lv.getAdapter())
-							.notifyDataSetChanged();
+					((NameArrayAdapter) lv.getAdapter()).notifyDataSetChanged();
 				}
 
 			}
@@ -74,8 +74,10 @@ public class StartSession extends Activity {
 						Intent i = IntentManager.getMainIntent(
 								StartSession.this, s);
 						Map<String, String> params = new HashMap<String, String>();
-						params.put("user_count", String.valueOf(s.getPlayers().size()));
-						params.put("warntimeout", String.valueOf(s.getWarnTimeOut()));
+						params.put("user_count",
+								String.valueOf(s.getPlayers().size()));
+						params.put("warntimeout",
+								String.valueOf(s.getWarnTimeOut()));
 						FlurryAgent.logEvent("Shisha usages", params);
 						finish();
 						startActivity(i);
@@ -86,48 +88,54 @@ public class StartSession extends Activity {
 					}
 				} else {
 					Toast.makeText(getApplicationContext(),
-							R.string.error_no_timeout_set,
-							Toast.LENGTH_SHORT).show();
+							R.string.error_no_timeout_set, Toast.LENGTH_SHORT)
+							.show();
 				}
 			}
 		});
 	}
 
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event)  {
-	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-	    	AlertDialog.Builder adb= new AlertDialog.Builder(this);
-	    	adb.setTitle(R.string.exit_app);
-	    	adb.setMessage(R.string.areyousure_exit);
-	    	adb.setCancelable(false).setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					StartSession.this.finish();
-					
-				}
-			}).setNegativeButton(R.string.nope, new DialogInterface.OnClickListener() {
-				
-				@Override
-				public void onClick(DialogInterface dialog, int which) {
-					dialog.cancel();
-					
-				}
-			});
-	    	AlertDialog dialog = adb.create();
-	    	dialog.show();
-	        return true;
-	    }
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			AlertDialog.Builder adb = new AlertDialog.Builder(this);
+			adb.setTitle(R.string.exit_app);
+			adb.setMessage(R.string.areyousure_exit);
+			adb.setCancelable(false)
+					.setPositiveButton(R.string.yes,
+							new DialogInterface.OnClickListener() {
 
-	    return super.onKeyDown(keyCode, event);
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									StartSession.this.finish();
+
+								}
+							})
+					.setNegativeButton(R.string.nope,
+							new DialogInterface.OnClickListener() {
+
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.cancel();
+
+								}
+							});
+			AlertDialog dialog = adb.create();
+			dialog.show();
+			return true;
+		}
+
+		return super.onKeyDown(keyCode, event);
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		getMenuInflater().inflate(R.menu.menu_main, menu);
 		return true;
 	}
-	
+
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
@@ -138,7 +146,7 @@ public class StartSession extends Activity {
 			return super.onOptionsItemSelected(item);
 		}
 	}
-	
+
 	@Override
 	protected void onStart() {
 		super.onStart();
@@ -146,9 +154,21 @@ public class StartSession extends Activity {
 	}
 
 	@Override
-	protected void onStop()
-	{
-		super.onStop();		
+	protected void onStop() {
+		super.onStop();
 		FlurryAgent.onEndSession(this);
+	}
+
+	private class NameArrayAdapter extends ArrayAdapter<String> {
+
+		public NameArrayAdapter(Context context, int textViewResourceId,
+				List<String> objects) {
+			super(context, textViewResourceId, objects);
+		}
+
+		@Override
+		public boolean isEnabled(int position) {
+			return false;
+		}
 	}
 }
