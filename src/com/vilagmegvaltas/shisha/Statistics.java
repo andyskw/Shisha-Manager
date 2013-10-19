@@ -1,10 +1,5 @@
 package com.vilagmegvaltas.shisha;
 
-import com.flurry.android.FlurryAgent;
-import com.vilagmegvaltas.shisha.entities.Session;
-import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
-import com.vilagmegvaltas.shisha.utils.IntentManager;
-
 import android.app.TabActivity;
 import android.content.Context;
 import android.content.Intent;
@@ -20,6 +15,11 @@ import android.widget.TabHost;
 import android.widget.TabHost.TabSpec;
 import android.widget.TextView;
 
+import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
+
 
 public class Statistics extends TabActivity {
 
@@ -28,14 +28,21 @@ public class Statistics extends TabActivity {
 	Session s;
     TabHost mTabHost;
     
+    
 	private void setupTabHost() {
 		mTabHost = (TabHost) findViewById(android.R.id.tabhost);
 		mTabHost.setup();
 		
-		Intent i = new Intent(this, UsageSummary.class);
-		i.putExtra("session", s);
-		setupTab(new TextView(this), getString(R.string.statistics), R.drawable.statistics, IntentManager.getSessionSummaryIntent(this, s));
-		setupTab(new TextView(this), getString(R.string.usageRounds), R.drawable.graph, i);
+		Intent usageSummaryIntent = new Intent(this, UsageSummary.class);
+		usageSummaryIntent.putExtra("session", s);
+		Intent sessionSummary = IntentManager.getSessionSummaryIntent(this, s);
+		Intent share = IntentManager.getShareIntent(this, s);
+		sessionSummary.putExtra("share", share);
+		usageSummaryIntent.putExtra("share", share);
+		setupTab(new TextView(this), getString(R.string.statistics), R.drawable.statistics, sessionSummary );
+		setupTab(new TextView(this), getString(R.string.usageRounds), R.drawable.graph, usageSummaryIntent);
+		setupTab(new TextView(this), getString(R.string.share), R.drawable.share, share);
+
 	}
 	
 	@Override
@@ -43,7 +50,9 @@ public class Statistics extends TabActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statistics);
         s = (Session) getIntent().getExtras().getSerializable("session");
+  
         setupTabHost();
+        
         
     }
         
@@ -110,4 +119,6 @@ public class Statistics extends TabActivity {
 		super.onStop();		
 		FlurryAgent.onEndSession(this);
 	}
+	
+	
 }

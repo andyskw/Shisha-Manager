@@ -2,6 +2,7 @@ package com.vilagmegvaltas.shisha.utils;
 
 import com.vilagmegvaltas.shisha.Main;
 import com.vilagmegvaltas.shisha.SessionSummary;
+import com.vilagmegvaltas.shisha.Share;
 import com.vilagmegvaltas.shisha.StartSession;
 import com.vilagmegvaltas.shisha.Statistics;
 import com.vilagmegvaltas.shisha.entities.Session;
@@ -41,5 +42,11 @@ public class IntentManager {
 		i.putExtra("session", s);
 		return i;
 		
+	}
+	
+	public static Intent getShareIntent(Activity host, Session s) {
+		Intent i = new Intent().setClass(host, Share.class);
+		i.putExtra("session", s);
+		return i;
 	}
 }

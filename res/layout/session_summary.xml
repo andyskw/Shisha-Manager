@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:id="@+id/session_summary_host"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:id ="@+id/session_summary_host"
-    >
-    <ListView android:layout_height="wrap_content" android:layout_width="fill_parent" android:id="@+id/sessionlist"></ListView>
+    android:orientation="vertical" 
+    android:drawingCacheQuality="high">
+
+    <ListView
+        android:id="@+id/sessionlist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+    </ListView>
+
 </LinearLayout>

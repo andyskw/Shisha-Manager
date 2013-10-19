@@ -3,15 +3,10 @@ package com.vilagmegvaltas.shisha;
 
 import java.util.List;
 
-import com.flurry.android.FlurryAgent;
-import com.vilagmegvaltas.shisha.entities.Player;
-import com.vilagmegvaltas.shisha.entities.Session;
-import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
-import com.vilagmegvaltas.shisha.utils.IntentManager;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -19,9 +14,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.entities.Player;
+import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
+import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 public class SessionSummary extends Activity {
 
@@ -38,7 +41,21 @@ public class SessionSummary extends Activity {
 		s = (Session) getIntent().getExtras().get("session");
 		ListView lv = (ListView) findViewById(R.id.sessionlist);
 		lv.setAdapter(new SummaryAdapter(this, R.layout.session_item, s.getPlayers()));
-
+		final LinearLayout ll = (LinearLayout) findViewById(R.id.session_summary_host);
+		ll.getViewTreeObserver().addOnGlobalLayoutListener(new OnGlobalLayoutListener() {
+			
+			@Override
+			public void onGlobalLayout() {
+				View z = ll.getRootView();
+				z.setDrawingCacheEnabled(true);
+				z.buildDrawingCache(true);
+				Bitmap x = z.getDrawingCache();
+				Intent share = (Intent) getIntent().getExtras().get("share");
+				share.putExtra("session_summary", x);
+				
+			}
+		});
+		
 	}
 
 	private class SummaryAdapter extends ArrayAdapter<Player> {

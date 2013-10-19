@@ -31,4 +31,8 @@
     <string name="usageTimes">Shisha usage times</string>
     <string name="round">Round</string>
     <string name="timesec">Time (sec)</string>
+    <string name="share">Share</string>
+    <string name="sharetext">Text to share:</string>
+    <string name="addchart">Add chart as Image</string>
+    <string name="textshareDefault">I\'ve just had a great time with my friends and with my shisha!</string>
 </resources>

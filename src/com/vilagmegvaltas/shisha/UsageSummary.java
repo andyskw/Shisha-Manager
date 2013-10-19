@@ -15,7 +15,6 @@
  */
 package com.vilagmegvaltas.shisha;
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,15 +33,15 @@ import com.vilagmegvaltas.shisha.entities.Session;
 import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
-
-
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Paint.Align;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.LinearLayout;
 
 /**
@@ -57,7 +56,7 @@ public class UsageSummary extends AbstractChart {
 	 * 
 	 * @return the chart name
 	 */
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		s = (Session) (getIntent().getExtras().get("session"));
@@ -65,8 +64,25 @@ public class UsageSummary extends AbstractChart {
 		ll = (LinearLayout) findViewById(R.id.contentOfChart);
 		ll.addView(execute(this));
 		super.onCreate(savedInstanceState);
-	}
+		final View host = findViewById(R.id.session_chart_llayout_host);
+		
+		host.getViewTreeObserver().addOnGlobalLayoutListener(
+				new OnGlobalLayoutListener() {
 
+					@Override
+					public void onGlobalLayout() {
+						
+						host.setDrawingCacheEnabled(true);
+						host.buildDrawingCache(true);
+						Bitmap x = host.getDrawingCache();
+						Intent share = (Intent) getIntent().getExtras().get(
+								"share");
+						share.putExtra("usage_summary_graph", x);
+
+					}
+				});
+
+	}
 
 	/**
 	 * Executes the chart demo.
@@ -89,8 +105,9 @@ public class UsageSummary extends AbstractChart {
 		int[] colors = new int[players.size()];
 		PointStyle[] styles = new PointStyle[players.size()];
 		Random r = new Random(555555);
-		for (i = 0; i < titles.length; i++) {		
-			colors[i] = Color.rgb(r.nextInt(255), r.nextInt(255), r.nextInt(255));
+		for (i = 0; i < titles.length; i++) {
+			colors[i] = Color.rgb(r.nextInt(255), r.nextInt(255),
+					r.nextInt(255));
 			styles[i] = PointStyle.CIRCLE;
 			Player p = players.get(i);
 			Map<Integer, Long> history = p.getHistory();
@@ -101,7 +118,9 @@ public class UsageSummary extends AbstractChart {
 				timing[u] = time;
 				double value = history.get(time).doubleValue();
 				playerstat[u] = value / 1000;
-				if (playerstat[u] > maxValue) { maxValue = playerstat[u]; }
+				if (playerstat[u] > maxValue) {
+					maxValue = playerstat[u];
+				}
 				u++;
 			}
 			x.add(timing);
@@ -114,30 +133,32 @@ public class UsageSummary extends AbstractChart {
 			((XYSeriesRenderer) renderer.getSeriesRendererAt(i))
 					.setFillPoints(true);
 		}
-		setChartSettings(renderer, getString(R.string.usageTimes), getString(R.string.round),
-				getString(R.string.timesec), 0.0, s.getRounds() + 0.5, 0, maxValue+maxValue*0.2, Color.LTGRAY, Color.LTGRAY);
+		setChartSettings(renderer, getString(R.string.usageTimes),
+				getString(R.string.round), getString(R.string.timesec), 0.0,
+				s.getRounds() + 0.5, 0, maxValue + maxValue * 0.2,
+				Color.LTGRAY, Color.LTGRAY);
 		renderer.setXLabels(12);
 		renderer.setYLabels(10);
 		renderer.setShowGrid(true);
 		renderer.setXLabelsAlign(Align.RIGHT);
 		renderer.setYLabelsAlign(Align.RIGHT);
-		return ChartFactory.getLineChartView(context, buildDataset(
-				titles, x, values), renderer);
+		return ChartFactory.getLineChartView(context,
+				buildDataset(titles, x, values), renderer);
 
 	}
 
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event)  {
-	    if (keyCode == KeyEvent.KEYCODE_BACK) {
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			Intent main = IntentManager.getStartSessionIntent(this);
 			finish();
 			startActivity(main);
-	        return true;
-	    }
+			return true;
+		}
 
-	    return super.onKeyDown(keyCode, event);
+		return super.onKeyDown(keyCode, event);
 	}
-	
+
 	@Override
 	protected void onStart() {
 		super.onStart();
@@ -145,9 +166,8 @@ public class UsageSummary extends AbstractChart {
 	}
 
 	@Override
-	protected void onStop()
-	{
-		super.onStop();		
+	protected void onStop() {
+		super.onStop();
 		FlurryAgent.onEndSession(this);
 	}
 }

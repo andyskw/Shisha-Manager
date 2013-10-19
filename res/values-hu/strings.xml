@@ -31,4 +31,8 @@
     <string name="usageTimes">Pipahasználat ideje</string>
     <string name="round">Kör</string>
     <string name="timesec">Idő (másodperc)</string>
+    <string name="share">Megosztás</string>
+    <string name="sharetext">Megosztandó szöveg:</string>
+    <string name="addchart">Grafikon megosztása</string>
+    <string name="textshareDefault">Épp most pipáztam egyet a barátaimmal!</string>
 </resources>
