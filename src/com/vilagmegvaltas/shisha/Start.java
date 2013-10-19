@@ -14,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 
 import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.utils.AppRater;
 import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
@@ -25,7 +26,7 @@ public class Start extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start);
 		ll = (LinearLayout) findViewById(R.id.start_llayout_host);
-		
+		AppRater.app_launched(this);
 		ll.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -33,6 +34,7 @@ public class Start extends Activity {
 				startSession();			
 			}
 		});
+		
 		
 	}
 
