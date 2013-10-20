@@ -1,7 +1,5 @@
 package com.vilagmegvaltas.shisha;
 
-
-
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.app.KeyguardManager.KeyguardLock;
@@ -13,13 +11,12 @@ import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -35,7 +32,7 @@ public class Main extends Activity {
 	private TextView actPlayer;
 	private Spinner sp;
 	private TextView pleaseClick;
-	LinearLayout ll;
+	RelativeLayout ll;
 	private MediaPlayer mp;
 	Button end_session;
 	Button pause;
@@ -43,7 +40,7 @@ public class Main extends Activity {
 	private boolean started = false;
 	KeyguardManager km;
 	KeyguardLock newKeyguardLock;
-	
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,8 +52,8 @@ public class Main extends Activity {
 			s.addPlayer("andy");
 			s.addPlayer("flyerz");
 		}
-		km = (KeyguardManager)getSystemService(Activity.KEYGUARD_SERVICE);
-		newKeyguardLock = km.newKeyguardLock("Shisha"); 
+		km = (KeyguardManager) getSystemService(Activity.KEYGUARD_SERVICE);
+		newKeyguardLock = km.newKeyguardLock("Shisha");
 		mp = MediaPlayer.create(this, R.raw.timeout);
 		cm = (Chronometer) findViewById(R.id.chronometer1);
 		actPlayer = (TextView) findViewById(R.id.textView1);
@@ -71,28 +68,29 @@ public class Main extends Activity {
 		});
 		pause = (Button) findViewById(R.id.btn_pause);
 		pause.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
 			public void onClick(View v) {
 				if (pauseTime == 0 && started) {
-				pauseTime = SystemClock.elapsedRealtime();
-				cm.stop();
-				pause.setText(R.string.resume);
-				pleaseClick.setText(R.string.paused_infotext);
+					pauseTime = SystemClock.elapsedRealtime();
+					cm.stop();
+					pause.setText(R.string.resume);
+					pleaseClick.setText(R.string.paused_infotext);
 				} else {
 					if (started) {
-					cm.setBase(SystemClock.elapsedRealtime() - (pauseTime - cm.getBase()));
-					cm.start();
-					pauseTime = 0;
-					pause.setText(R.string.pause);
-					pleaseClick.setText("");
+						cm.setBase(SystemClock.elapsedRealtime()
+								- (pauseTime - cm.getBase()));
+						cm.start();
+						pauseTime = 0;
+						pause.setText(R.string.pause);
+						pleaseClick.setText("");
 					}
 				}
-				
+
 			}
 		});
-		
-		ll = (LinearLayout) findViewById(R.id.main_llayout_host);
+
+		ll = (RelativeLayout) findViewById(R.id.main_llayout_host);
 		ll.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -103,10 +101,10 @@ public class Main extends Activity {
 					cm.start();
 				} else {
 					if (pauseTime == 0) {
-					
+
 						nextPlayer();
 						cm.setKeepScreenOn(false);
-						
+
 					}
 				}
 			}
@@ -117,12 +115,13 @@ public class Main extends Activity {
 				if (time > s.getWarnTimeOut()) {
 					cm.setTextColor(Color.RED);
 					newKeyguardLock.disableKeyguard();
-					WakeLock screenLock = ((PowerManager)getSystemService(POWER_SERVICE)).newWakeLock(
-						     PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ACQUIRE_CAUSES_WAKEUP, "TAG");
-						screenLock.acquire();
-						screenLock.release();
+					WakeLock screenLock = ((PowerManager) getSystemService(POWER_SERVICE))
+							.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK
+									| PowerManager.ACQUIRE_CAUSES_WAKEUP, "TAG");
+					screenLock.acquire();
+					screenLock.release();
 					cm.setKeepScreenOn(true);
-					
+
 					if (!mp.isPlaying())
 						mp.start();
 				}
@@ -143,7 +142,8 @@ public class Main extends Activity {
 
 	private void endSession() {
 		if (pauseTime != 0) {
-			cm.setBase(SystemClock.elapsedRealtime() - (pauseTime - cm.getBase()));
+			cm.setBase(SystemClock.elapsedRealtime()
+					- (pauseTime - cm.getBase()));
 		}
 		long time = SystemClock.elapsedRealtime() - cm.getBase();
 		s.next(time);
@@ -152,24 +152,23 @@ public class Main extends Activity {
 		finish();
 		startActivity(statistics);
 	}
-	
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event)  {
-	    if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
-	    	//OMITTED!
-	        return true;
-	    } else if (keyCode == KeyEvent.KEYCODE_CAMERA) {
-	    	nextPlayer();
-	    	
-	    }
 
-	    return super.onKeyDown(keyCode, event);
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK && event.getRepeatCount() == 0) {
+			// OMITTED!
+			return true;
+		} else if (keyCode == KeyEvent.KEYCODE_CAMERA) {
+			nextPlayer();
+
+		}
+
+		return super.onKeyDown(keyCode, event);
 	}
 
 	
 	
 
-	
 	@Override
 	protected void onStart() {
 		super.onStart();
@@ -177,12 +176,10 @@ public class Main extends Activity {
 	}
 
 	@Override
-	protected void onStop()
-	{
+	protected void onStop() {
 		newKeyguardLock.reenableKeyguard();
-		super.onStop();		
+		super.onStop();
 		FlurryAgent.onEndSession(this);
 	}
-	
-	
+
 }
