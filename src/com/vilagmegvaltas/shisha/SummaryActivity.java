@@ -18,6 +18,7 @@ public class SummaryActivity extends FragmentActivity {
 	ViewPager pager;
 	TitlePageIndicator indicator;
 	Session s;
+	private String chartFragmentIdentifier;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,5 +62,13 @@ public class SummaryActivity extends FragmentActivity {
 		}
 
 		return super.onKeyDown(keyCode, event);
+	}
+
+	public String getChartFragmentIdentifier() {
+		return chartFragmentIdentifier;
+	}
+
+	public void setChartFragmentIdentifier(String chartFragmentIdentifier) {
+		this.chartFragmentIdentifier = chartFragmentIdentifier;
 	}
 }

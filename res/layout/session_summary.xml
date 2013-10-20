@@ -3,13 +3,14 @@
     android:id="@+id/session_summary_host"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    android:drawingCacheQuality="high">
+    android:drawingCacheQuality="high"
+    android:orientation="vertical" >
 
     <ListView
         android:id="@+id/sessionlist"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000" >
     </ListView>
 
 </LinearLayout>

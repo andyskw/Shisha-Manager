@@ -57,11 +57,12 @@ public class SessionSummaryFragment extends Fragment {
 						z.setDrawingCacheEnabled(true);
 						z.buildDrawingCache(true);
 						Bitmap x = z.getDrawingCache();
-						
-						Intent share = null;// = (Intent) getArguments().get("share");
+
+						Intent share = null;// = (Intent)
+											// getArguments().get("share");
 						if (share != null)
 							share.putExtra("session_summary", x);
-						else 
+						else
 							Log.w(getClass().getName(), "share extra null");
 
 					}
@@ -81,6 +82,11 @@ public class SessionSummaryFragment extends Fragment {
 			super(context, textViewResourceId, objects);
 			players = objects;
 
+		}
+
+		@Override
+		public boolean isEnabled(int position) {
+			return false;
 		}
 
 		@Override

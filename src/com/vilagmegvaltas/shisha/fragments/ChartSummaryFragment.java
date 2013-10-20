@@ -13,11 +13,6 @@ import org.achartengine.model.XYSeries;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
-import com.flurry.android.FlurryAgent;
-import com.vilagmegvaltas.shisha.R;
-import com.vilagmegvaltas.shisha.entities.Player;
-import com.vilagmegvaltas.shisha.entities.Session;
-
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -32,9 +27,16 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver.OnGlobalLayoutListener;
 import android.widget.LinearLayout;
 
+import com.flurry.android.FlurryAgent;
+import com.vilagmegvaltas.shisha.R;
+import com.vilagmegvaltas.shisha.SummaryActivity;
+import com.vilagmegvaltas.shisha.entities.Player;
+import com.vilagmegvaltas.shisha.entities.Session;
+
 public class ChartSummaryFragment extends Fragment {
 	private static Session session;
 	private LinearLayout ll;
+	Bitmap myChartBitmap;
 
 	public static Fragment newInstance(Session s) {
 		ChartSummaryFragment f = new ChartSummaryFragment();
@@ -45,6 +47,7 @@ public class ChartSummaryFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		((SummaryActivity) getActivity()).setChartFragmentIdentifier(getTag());
 		View v = inflater.inflate(R.layout.session_chart, null);
 
 		ll = (LinearLayout) v.findViewById(R.id.contentOfChart);
@@ -60,21 +63,17 @@ public class ChartSummaryFragment extends Fragment {
 
 						host.setDrawingCacheEnabled(true);
 						host.buildDrawingCache(true);
-						Bitmap x = host.getDrawingCache();
-
-						Intent share = null;// = (Intent)
-											// getArguments().get("share");
-						if (share != null)
-							share.putExtra("usage_summary_graph", x);
-						else
-							Log.w(getClass().getName(), "share extra null");
-
+						myChartBitmap = host.getDrawingCache();
 					}
 				});
 
 		FlurryAgent.logEvent("UsageSummary(Chart) viewed");
 
 		return v;
+	}
+
+	public Bitmap getChartBitmap() {
+		return myChartBitmap;
 	}
 
 	/**
@@ -135,7 +134,13 @@ public class ChartSummaryFragment extends Fragment {
 		renderer.setShowGrid(true);
 		renderer.setXLabelsAlign(Align.RIGHT);
 		renderer.setYLabelsAlign(Align.RIGHT);
-		
+
+		renderer.setApplyBackgroundColor(true);
+		renderer.setBackgroundColor(getResources().getColor(
+				R.color.halfTransparent));
+		renderer.setMarginsColor(getResources().getColor(
+				R.color.halfTransparent));
+
 		GraphicalView chart = ChartFactory.getLineChartView(context,
 				buildDataset(titles, x, values), renderer);
 		chart.setBackgroundColor(Color.TRANSPARENT);
