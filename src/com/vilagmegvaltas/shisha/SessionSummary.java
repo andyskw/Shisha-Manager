@@ -1,7 +1,9 @@
 package com.vilagmegvaltas.shisha;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.app.Activity;
 import android.content.Context;
@@ -55,7 +57,9 @@ public class SessionSummary extends Activity {
 				
 			}
 		});
-		
+
+
+		FlurryAgent.logEvent("SessionSummary viewed");
 	}
 
 	private class SummaryAdapter extends ArrayAdapter<Player> {

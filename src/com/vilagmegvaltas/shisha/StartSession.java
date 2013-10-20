@@ -80,7 +80,7 @@ public class StartSession extends Activity {
 								String.valueOf(s.getPlayers().size()));
 						params.put("warntimeout",
 								String.valueOf(s.getWarnTimeOut()));
-						FlurryAgent.logEvent("Shisha usages", params);
+						FlurryAgent.logEvent("New Session", params);
 						finish();
 						startActivity(i);
 					} else {
