@@ -52,8 +52,10 @@ public class ShareFragment extends Fragment {
 		adapter = new SocialAuthAdapter(new ResponseListener());
 
 		// Add providers
-		adapter.addProvider(Provider.FACEBOOK, R.drawable.icon);
-
+		adapter.addProvider(Provider.FACEBOOK, R.drawable.facebook);
+		adapter.addProvider(Provider.TWITTER, R.drawable.twitter);
+		adapter.addProviderName(Provider.FACEBOOK, "Facebook");
+		adapter.addProviderName(Provider.TWITTER, "Twitter");
 		// Enable Provider
 		adapter.enable(share);
 		return v;
