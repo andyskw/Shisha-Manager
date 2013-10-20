@@ -50,7 +50,7 @@
         </activity>
         <activity
             android:name="com.vilagmegvaltas.shisha.SummaryActivity"
-            android:label="@string/title_activity_summary" >
+             >
         </activity>
     </application>
 

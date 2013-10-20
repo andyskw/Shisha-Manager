@@ -33,9 +33,7 @@
     <string name="sharetext">Text to share:</string>
     <string name="addchart">Add chart as Image</string>
     <string name="textshareDefault">I\'ve just had a great time with my friends and with my shisha!</string>
-    <string name="title_activity_summary">SummaryActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
+
 
     <string-array name="titlePageIndicatorTitles">
         <item>@string/statistics</item>

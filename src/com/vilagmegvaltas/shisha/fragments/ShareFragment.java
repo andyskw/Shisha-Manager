@@ -44,8 +44,7 @@ public class ShareFragment extends Fragment {
 		Button share = (Button) v.findViewById(R.id.btn_share_share);
 		uploadImage = (CheckBox) v.findViewById(R.id.cb_share_uploadimage);
 		shareText = (EditText) v.findViewById(R.id.et_share_sharetext);
-		share.setText("Share");
-		share.setTextColor(Color.WHITE);
+
 		// share.setBackgroundResource(R.drawable.button_gradient);
 
 		// Add it to Library

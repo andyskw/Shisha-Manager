@@ -22,7 +22,6 @@
     <string name="resume">Folytatás</string>
     <string name="donate_title">Adakozás</string>
     <string name="menu_donate">Adakozz!</string>
-    <string name="donate_text">Ha tetszett az alkalmazás, és szeretnéd, ha a későbbiekben is lennének frissítései, kérlek, hívj meg egy pipázásra a PayPalen keresztül. :)</string>
     <string name="exit_app">Kilépés</string>
     <string name="areyousure_exit">Biztosan ki szeretnél lépni?</string>
     <string name="yes">Igen</string>
@@ -36,7 +35,7 @@
     <string name="sharetext">Megosztandó szöveg:</string>
     <string name="addchart">Grafikon megosztása</string>
     <string name="textshareDefault">Épp most pipáztam egyet a barátaimmal!</string>
-    <string name="rate">A Shisha Manager értékelése</string>
+    <string name="rate_title">A Shisha Manager értékelése</string>
     <string name="rate_descr">Ha tetszett a Shisha Manager, kérlek, szánj rá egy pillanatot, és értékeld az alkalmazást! Köszönöm a támogatást!</string>
     <string name="rate_button_rate">Értékelem!</string>
     <string name="rate_button_remind_later">Emlékeztess később!</string>
