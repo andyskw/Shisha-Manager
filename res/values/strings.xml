@@ -20,9 +20,6 @@
     <string name="pause">Pause</string>
     <string name="paused_infotext">Session paused. Please click on \'Resume\' to continue!</string>
     <string name="resume">Resume</string>
-    <string name="donate_title">Donate me!</string>
-    <string name="menu_donate">Donate!</string>
-    <string name="donate_text">If you like this application, and you would like me to make updates, please invite me to a Shisha session by sending me a donation via PayPal. :)</string>
     <string name="exit_app">Exit application</string>
     <string name="areyousure_exit">Are you sure you want to quit?</string>
     <string name="yes">Yes</string>
@@ -46,4 +43,15 @@
         <item>@string/share</item>
     </string-array>
 
+    <string name="rate_title">Rate Shisha Manager</string>
+    <string name="rate_descr">"If you enjoy using Shisha Manager, please take a moment to rate it. Thanks for your support!</string>
+    <string name="rate_button_rate">Rate Shisha Manager</string>
+    <string name="rate_button_remind_later">Remind me later</string>
+    <string name="rate_button_no_thanks">No thanks!</string>
+    <string name="donate_title">Donate me!</string>
+    <string name="menu_donate">Donate!</string>
+	<string name="donate_descr">If you like this application, and you would like me to make updates, please invite me to a Shisha session by sending me a donation via PayPal. :)</string>
+	<string name="donate_button_donate">I will invite you! :)</string>
+    <string name="donate_button_remind_later">Remind me later!</string>
+    <string name="donate_button_no_thanks">No thanks!</string>
 </resources>
