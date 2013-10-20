@@ -28,7 +28,7 @@ import com.vilagmegvaltas.shisha.utils.AppRater;
 import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
-public class StartSession extends Activity {
+public class StartSessionActivity extends Activity {
 	Button addUserButton;
 	Button startSessionButton;
 	ListView lv;
@@ -39,7 +39,7 @@ public class StartSession extends Activity {
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.start_session);
+		setContentView(R.layout.activity_startsession);
 		AppRater.app_launched(this);
 		addUserButton = (Button) findViewById(R.id.adduserButton);
 		startSessionButton = (Button) findViewById(R.id.startButton);
@@ -74,7 +74,7 @@ public class StartSession extends Activity {
 						s.setWarnTimeOut(Integer.parseInt(timeoutField
 								.getText().toString()) * 1000);
 						Intent i = IntentManager.getMainIntent(
-								StartSession.this, s);
+								StartSessionActivity.this, s);
 						Map<String, String> params = new HashMap<String, String>();
 						params.put("user_count",
 								String.valueOf(s.getPlayers().size()));
@@ -110,7 +110,7 @@ public class StartSession extends Activity {
 								@Override
 								public void onClick(DialogInterface dialog,
 										int which) {
-									StartSession.this.finish();
+									StartSessionActivity.this.finish();
 
 								}
 							})

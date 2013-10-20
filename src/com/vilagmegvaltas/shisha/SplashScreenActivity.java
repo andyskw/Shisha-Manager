@@ -19,7 +19,7 @@ import com.vilagmegvaltas.shisha.utils.AppRater;
 import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
-public class Start extends Activity {
+public class SplashScreenActivity extends Activity {
 	RelativeLayout ll;
 	private static final long SPLASH_TIMEOUT = 2000;
 	private boolean isTapped = false;
@@ -28,7 +28,7 @@ public class Start extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.start);
+		setContentView(R.layout.activity_splashscreen);
 		ll = (RelativeLayout) findViewById(R.id.start_llayout_host);
 		ll.setOnClickListener(new OnClickListener() {
 
@@ -74,7 +74,7 @@ public class Start extends Activity {
 								@Override
 								public void onClick(DialogInterface dialog,
 										int which) {
-									Start.this.finish();
+									SplashScreenActivity.this.finish();
 
 								}
 							})

@@ -20,7 +20,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Share extends Activity {
+public class ShareActivity extends Activity {
 
 	private SocialAuthAdapter adapter;
 	private CheckBox uploadImage;
@@ -29,7 +29,7 @@ public class Share extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.share);
+		setContentView(R.layout.activity_share);
 
 		// Create Your Own Share Button
 		Button share = (Button) findViewById(R.id.share);
@@ -101,10 +101,10 @@ public class Share extends Activity {
 			Integer status = t;
 			if (status.intValue() == 200 || status.intValue() == 201
 					|| status.intValue() == 204)
-				Toast.makeText(Share.this, "Message posted", Toast.LENGTH_LONG)
+				Toast.makeText(ShareActivity.this, "Message posted", Toast.LENGTH_LONG)
 						.show();
 			else
-				Toast.makeText(Share.this, "Message not posted",
+				Toast.makeText(ShareActivity.this, "Message not posted",
 						Toast.LENGTH_LONG).show();
 		}
 

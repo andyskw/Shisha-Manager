@@ -27,7 +27,7 @@ import com.vilagmegvaltas.shisha.entities.Session;
 import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
-public class Main extends Activity {
+public class RunningSessionActivity extends Activity {
 	/** Called when the activity is first created. */
 	private Session s;
 	private Chronometer cm;
@@ -47,7 +47,7 @@ public class Main extends Activity {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.main);
+		setContentView(R.layout.activity_runningsession);
 		s = (Session) (getIntent().getExtras().get("session"));
 		if (s == null) {
 			s = new Session();
