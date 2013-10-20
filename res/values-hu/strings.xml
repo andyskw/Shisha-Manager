@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="hello">Hello World, main!</string>
     <string name="app_name">Shisha Manager</string>
     <string name="newsession">Új pipázás</string>
@@ -35,4 +36,14 @@
     <string name="sharetext">Megosztandó szöveg:</string>
     <string name="addchart">Grafikon megosztása</string>
     <string name="textshareDefault">Épp most pipáztam egyet a barátaimmal!</string>
+    <string name="rate">A Shisha Manager értékelése</string>
+    <string name="rate_descr">Ha tetszett a Shisha Manager, kérlek, szánj rá egy pillanatot, és értékeld az alkalmazást! Köszönöm a támogatást!</string>
+    <string name="rate_button_rate">Értékelem!</string>
+    <string name="rate_button_remind_later">Emlékeztess később!</string>
+    <string name="rate_button_no_thanks">Nem, köszönöm.</string>
+    <string name="donate_descr">Ha tetszik az alkalmazás, és szeretnél újabb frissítéseket, kérlek, hívj meg egy pipára Paypalen keresztül. :)</string>
+    <string name="donate_button_donate">Szívesen meghívlak! :)</string>
+    <string name="donate_button_remind_later">Emlékeztess később!</string>
+    <string name="donate_button_no_thanks">Nem, köszönöm!</string>
+
 </resources>

@@ -1,5 +1,7 @@
 package com.vilagmegvaltas.shisha.utils;
 
+import com.vilagmegvaltas.shisha.R;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -16,7 +18,7 @@ public class DonateNotifier {
     private final static String APP_PNAME = "com.vilagmegvaltas.shisha";
     private static final String PAYPAL_LINK = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TY47JH5LK3AT8&lc=HU&item_name=Shisha%20Manager%20Donation&item_number=evogochi_donate&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted";
     
-    private final static int LAUNCHES_UNTIL_PROMPT = 20;
+    private final static int LAUNCHES_UNTIL_PROMPT = 1;
     
     public static void app_launched(Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("donate", Context.MODE_PRIVATE);
@@ -47,20 +49,20 @@ public class DonateNotifier {
     
     public static void showRateDialog(final Context mContext, final SharedPreferences.Editor editor) {
         final Dialog dialog = new Dialog(mContext);
-        dialog.setTitle("Donate me");
+        dialog.setTitle(mContext.getString(R.string.donate_title));
 
         LinearLayout ll = new LinearLayout(mContext);
         ll.setOrientation(LinearLayout.VERTICAL);
         
         TextView tv = new TextView(mContext);
-        tv.setText("If you enjoy using " + APP_TITLE + ", please invite me for a shisha. :) Thanks for your support!");
-        tv.setWidth(240);
+        tv.setText(mContext.getString(R.string.donate_descr));
+        tv.setWidth(300);
         tv.setPadding(4, 0, 4, 10);
         ll.addView(tv);
         
-        Button b1 = new Button(mContext);
-        b1.setText("Donate");
-        b1.setOnClickListener(new OnClickListener() {
+        Button btn_donate = new Button(mContext);
+        btn_donate.setText(mContext.getString(R.string.donate_button_donate));
+        btn_donate.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
             	editor.putLong("launch_count", 0);
             	editor.commit();
@@ -68,22 +70,22 @@ public class DonateNotifier {
                 dialog.dismiss();
             }
         });        
-        ll.addView(b1);
+        ll.addView(btn_donate);
 
-        Button b2 = new Button(mContext);
-        b2.setText("Remind me later");
-        b2.setOnClickListener(new OnClickListener() {
+        Button btn_remindMe = new Button(mContext);
+        btn_remindMe.setText(mContext.getString(R.string.donate_button_remind_later));
+        btn_remindMe.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
             	editor.putLong("launch_count", 0);
             	editor.commit();
                 dialog.dismiss();
             }
         });
-        ll.addView(b2);
+        ll.addView(btn_remindMe);
 
-        Button b3 = new Button(mContext);
-        b3.setText("No, thanks");
-        b3.setOnClickListener(new OnClickListener() {
+        Button btn_noThanks = new Button(mContext);
+        btn_noThanks.setText(mContext.getString(R.string.donate_button_no_thanks));
+        btn_noThanks.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
                 if (editor != null) {
                     editor.putBoolean("dontshowagain", true);
@@ -92,7 +94,7 @@ public class DonateNotifier {
                 dialog.dismiss();
             }
         });
-        ll.addView(b3);
+        ll.addView(btn_noThanks);
 
         dialog.setContentView(ll);        
         dialog.show();        
