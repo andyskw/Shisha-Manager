@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.flurry.android.FlurryAgent;
 import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.AppRater;
 import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
@@ -39,6 +40,7 @@ public class StartSession extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.start_session);
+		AppRater.app_launched(this);
 		addUserButton = (Button) findViewById(R.id.adduserButton);
 		startSessionButton = (Button) findViewById(R.id.startButton);
 		lv = (ListView) findViewById(R.id.userList);
