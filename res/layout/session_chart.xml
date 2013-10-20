@@ -16,7 +16,7 @@
             android:src="@drawable/icon" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/tv_chart_appname"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"

@@ -29,7 +29,7 @@ public class SplashScreenActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_splashscreen);
-		ll = (RelativeLayout) findViewById(R.id.start_llayout_host);
+		ll = (RelativeLayout) findViewById(R.id.rl_splashscreen_host);
 		ll.setOnClickListener(new OnClickListener() {
 
 			@Override

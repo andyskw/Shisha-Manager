@@ -59,7 +59,7 @@ public class RunningSessionActivity extends Activity {
 		newKeyguardLock = km.newKeyguardLock("Shisha");
 		mp = MediaPlayer.create(this, R.raw.timeout);
 		cm = (Chronometer) findViewById(R.id.chronometer1);
-		actPlayer = (TextView) findViewById(R.id.textView1);
+		actPlayer = (TextView) findViewById(R.id.tv_runningsession_name);
 		pleaseClick = (TextView) findViewById(R.id.pleaseClickTextView);
 		end_session = (Button) findViewById(R.id.btn_endsession);
 		pb_userprogress = (ProgressBar) findViewById(R.id.pb_userprogress);

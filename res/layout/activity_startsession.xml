@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/start_llayout_host"
+    android:id="@+id/rl_startsession_host"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/app_bg"
     android:orientation="vertical" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/tv_startsession_newsession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,15 +18,15 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <LinearLayout
-        android:id="@+id/ll_user"
+        android:id="@+id/ll_startsession_adduser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/rl"
+        android:layout_above="@+id/rl_startsession_timeout"
         android:background="#50000000"
         android:padding="10dp" >
 
         <EditText
-            android:id="@+id/newUserName"
+            android:id="@+id/et_startsession_newusername"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -34,7 +34,7 @@
             android:inputType="textPersonName" />
 
         <Button
-            android:id="@+id/adduserButton"
+            android:id="@+id/btn_startsession_adduser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -42,23 +42,23 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/tv_startsession_adduser_descr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/ll_user"
+        android:layout_above="@+id/ll_startsession_adduser"
         android:background="#50000000"
         android:padding="10dp"
         android:text="@string/adduser_helptext"
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <RelativeLayout
-        android:id="@+id/rl"
+        android:id="@+id/rl_startsession_timeout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" >
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_startsession_timeout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -69,25 +69,25 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_startsession_timeout_descr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView2"
+            android:layout_below="@+id/tv_startsession_timeout"
             android:background="#90000000"
             android:padding="10dp"
             android:text="@string/timeouthelp"
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <LinearLayout
-            android:id="@+id/ll_timeout"
+            android:id="@+id/ll_startsession_timeout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textView3"
+            android:layout_below="@+id/tv_startsession_timeout_descr"
             android:background="#90000000"
             android:paddingBottom="15dp" >
 
             <EditText
-                android:id="@+id/timeoutField"
+                android:id="@+id/et_startsession_timeout"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -96,7 +96,7 @@
                 android:text="@string/defaulttimeout" />
 
             <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/tv_startsession_timeout_seconds"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12sp"
@@ -107,11 +107,11 @@
     </RelativeLayout>
 
     <ListView
-        android:id="@+id/userList"
+        android:id="@+id/lv_startsession_userlist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/textView5"
-        android:layout_below="@+id/textView1"
+        android:layout_above="@+id/tv_startsession_adduser_descr"
+        android:layout_below="@+id/tv_startsession_newsession"
         android:background="#50000000"
         android:cacheColorHint="#0000"
         android:clickable="false"
@@ -119,7 +119,7 @@
     </ListView>
 
     <Button
-        android:id="@+id/startButton"
+        android:id="@+id/btn_startsession_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

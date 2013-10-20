@@ -41,11 +41,11 @@ public class StartSessionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startsession);
 		AppRater.app_launched(this);
-		addUserButton = (Button) findViewById(R.id.adduserButton);
-		startSessionButton = (Button) findViewById(R.id.startButton);
-		lv = (ListView) findViewById(R.id.userList);
-		tv = (TextView) findViewById(R.id.newUserName);
-		timeoutField = (TextView) findViewById(R.id.timeoutField);
+		addUserButton = (Button) findViewById(R.id.btn_startsession_adduser);
+		startSessionButton = (Button) findViewById(R.id.btn_startsession_start);
+		lv = (ListView) findViewById(R.id.lv_startsession_userlist);
+		tv = (TextView) findViewById(R.id.et_startsession_newusername);
+		timeoutField = (TextView) findViewById(R.id.et_startsession_timeout);
 		lv.setAdapter(new NameArrayAdapter(this,
 				android.R.layout.simple_list_item_1, names));
 		addUserButton.setOnClickListener(new OnClickListener() {
