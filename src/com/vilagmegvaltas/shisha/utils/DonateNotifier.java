@@ -14,11 +14,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class DonateNotifier {
-    private final static String APP_TITLE = "Shisha Manager";
-    private final static String APP_PNAME = "com.vilagmegvaltas.shisha";
+
     private static final String PAYPAL_LINK = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TY47JH5LK3AT8&lc=HU&item_name=Shisha%20Manager%20Donation&item_number=evogochi_donate&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted";
     
-    private final static int LAUNCHES_UNTIL_PROMPT = 1;
+    private final static int LAUNCHES_UNTIL_PROMPT = 20;
     
     public static void app_launched(Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("donate", Context.MODE_PRIVATE);

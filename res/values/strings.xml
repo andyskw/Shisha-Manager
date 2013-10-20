@@ -25,7 +25,7 @@
     <string name="yes">Yes</string>
     <string name="nope">Nope</string>
     <string name="statistics">Statistics</string>
-    <string name="usageRounds">Usage times per round</string>
+    <string name="usageRounds">Chart</string>
     <string name="usageTimes">Shisha usage times</string>
     <string name="round">Round</string>
     <string name="timesec">Time (sec)</string>

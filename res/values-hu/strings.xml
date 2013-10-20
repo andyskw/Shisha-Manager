@@ -28,7 +28,7 @@
     <string name="yes">Igen</string>
     <string name="nope">Nem</string>
     <string name="statistics">Statisztika</string>
-    <string name="usageRounds">Körönkénti pipahasználat</string>
+    <string name="usageRounds">Grafikon</string>
     <string name="usageTimes">Pipahasználat ideje</string>
     <string name="round">Kör</string>
     <string name="timesec">Idő (másodperc)</string>
