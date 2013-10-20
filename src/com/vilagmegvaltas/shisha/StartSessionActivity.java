@@ -12,12 +12,11 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,49 +28,49 @@ import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 public class StartSessionActivity extends Activity {
-	Button addUserButton;
-	Button startSessionButton;
-	ListView lv;
-	TextView tv;
-	TextView timeoutField;
-	ArrayList<String> names = new ArrayList<String>();
+	Button btn_addUserButton;
+	Button btn_startSessionButton;
+	ListView lv_userList;
+	TextView tv_newUserName;
+	EditText et_timeout;
+	ArrayList<String> users = new ArrayList<String>();
 
 	/** Called when the activity is first created. */
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_startsession);
 		AppRater.app_launched(this);
-		addUserButton = (Button) findViewById(R.id.btn_startsession_adduser);
-		startSessionButton = (Button) findViewById(R.id.btn_startsession_start);
-		lv = (ListView) findViewById(R.id.lv_startsession_userlist);
-		tv = (TextView) findViewById(R.id.et_startsession_newusername);
-		timeoutField = (TextView) findViewById(R.id.et_startsession_timeout);
-		lv.setAdapter(new NameArrayAdapter(this,
-				android.R.layout.simple_list_item_1, names));
-		addUserButton.setOnClickListener(new OnClickListener() {
+		btn_addUserButton = (Button) findViewById(R.id.btn_startsession_adduser);
+		btn_startSessionButton = (Button) findViewById(R.id.btn_startsession_start);
+		lv_userList = (ListView) findViewById(R.id.lv_startsession_userlist);
+		tv_newUserName = (TextView) findViewById(R.id.et_startsession_newusername);
+		et_timeout = (EditText) findViewById(R.id.et_startsession_timeout);
+		lv_userList.setAdapter(new NameArrayAdapter(this,
+				android.R.layout.simple_list_item_1, users));
+		btn_addUserButton.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View arg0) {
 
-				if (tv.getText() != null && tv.getText().length() > 0) {
-					names.add(tv.getText().toString());
-					tv.setText("");
-					((NameArrayAdapter) lv.getAdapter()).notifyDataSetChanged();
+				if (tv_newUserName.getText() != null && tv_newUserName.getText().length() > 0) {
+					users.add(tv_newUserName.getText().toString());
+					tv_newUserName.setText("");
+					((NameArrayAdapter) lv_userList.getAdapter()).notifyDataSetChanged();
 				}
 
 			}
 		});
-		startSessionButton.setOnClickListener(new OnClickListener() {
+		btn_startSessionButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View arg0) {
-				CharSequence cs = timeoutField.getText();
+				CharSequence cs = et_timeout.getText();
 				if (cs.length() != 0) {
-					if (!names.isEmpty()) {
+					if (!users.isEmpty()) {
 						Session s = new Session();
-						for (String name : names) {
+						for (String name : users) {
 							s.addPlayer(name);
 						}
-						s.setWarnTimeOut(Integer.parseInt(timeoutField
+						s.setWarnTimeOut(Integer.parseInt(et_timeout
 								.getText().toString()) * 1000);
 						Intent i = IntentManager.getMainIntent(
 								StartSessionActivity.this, s);

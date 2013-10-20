@@ -32,9 +32,9 @@ public class ShareActivity extends Activity {
 		setContentView(R.layout.activity_share);
 
 		// Create Your Own Share Button
-		Button share = (Button) findViewById(R.id.share);
-		uploadImage = (CheckBox) findViewById(R.id.uploadImage);
-		shareText = (EditText) findViewById(R.id.shareUserText);
+		Button share = (Button) findViewById(R.id.btn_share_share);
+		uploadImage = (CheckBox) findViewById(R.id.cb_share_uploadimage);
+		shareText = (EditText) findViewById(R.id.et_share_sharetext);
 		share.setText("Share");
 		share.setTextColor(Color.WHITE);
 		// share.setBackgroundResource(R.drawable.button_gradient);

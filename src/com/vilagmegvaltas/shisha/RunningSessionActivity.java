@@ -29,136 +29,135 @@ import com.vilagmegvaltas.shisha.utils.IntentManager;
 
 public class RunningSessionActivity extends Activity {
 	/** Called when the activity is first created. */
-	private Session s;
-	private Chronometer cm;
-	private TextView actPlayer;
-	private Spinner sp;
-	private TextView pleaseClick;
+	private Session session;
+	private Chronometer cm_chronoMeter;
+	private TextView tv_userName;
+	private TextView tv_pleaseClick;
 	RelativeLayout ll;
-	private MediaPlayer mp;
-	Button end_session;
-	Button pause;
+	private MediaPlayer mp_mediaPlayer;
+	Button btn_endSession;
+	Button btn_pause;
 	private long pauseTime;
 	private boolean started = false;
-	KeyguardManager km;
-	KeyguardLock newKeyguardLock;
+	KeyguardManager keyGuardManager;
+	KeyguardLock keyGuardLock;
 	ProgressBar pb_userprogress;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_runningsession);
-		s = (Session) (getIntent().getExtras().get("session"));
-		if (s == null) {
-			s = new Session();
-			s.setWarnTimeOut(60 * 1000 * 5);
-			s.addPlayer("andy");
-			s.addPlayer("flyerz");
+		session = (Session) (getIntent().getExtras().get("session"));
+		if (session == null) {
+			session = new Session();
+			session.setWarnTimeOut(60 * 1000 * 5);
+			session.addPlayer("andy");
+			session.addPlayer("flyerz");
 		}
-		km = (KeyguardManager) getSystemService(Activity.KEYGUARD_SERVICE);
-		newKeyguardLock = km.newKeyguardLock("Shisha");
-		mp = MediaPlayer.create(this, R.raw.timeout);
-		cm = (Chronometer) findViewById(R.id.chronometer1);
-		actPlayer = (TextView) findViewById(R.id.tv_runningsession_name);
-		pleaseClick = (TextView) findViewById(R.id.pleaseClickTextView);
-		end_session = (Button) findViewById(R.id.btn_endsession);
-		pb_userprogress = (ProgressBar) findViewById(R.id.pb_userprogress);
-		pb_userprogress.setMax(s.getWarnTimeOut() + 1000);
+		keyGuardManager = (KeyguardManager) getSystemService(Activity.KEYGUARD_SERVICE);
+		keyGuardLock = keyGuardManager.newKeyguardLock("Shisha");
+		mp_mediaPlayer = MediaPlayer.create(this, R.raw.timeout);
+		cm_chronoMeter = (Chronometer) findViewById(R.id.cm_runningsession_chronometer);
+		tv_userName = (TextView) findViewById(R.id.tv_runningsession_username);
+		tv_pleaseClick = (TextView) findViewById(R.id.tv_runningsession_pleaseclick_descr);
+		btn_endSession = (Button) findViewById(R.id.btn_runningsession_endsession);
+		pb_userprogress = (ProgressBar) findViewById(R.id.pb_runningsession_userprogress);
+		pb_userprogress.setMax(session.getWarnTimeOut() + 1000);
 		pb_userprogress.setProgress(0);
-		end_session.setOnClickListener(new OnClickListener() {
+		btn_endSession.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				endSession();
 
 			}
 		});
-		pause = (Button) findViewById(R.id.btn_pause);
-		pause.setOnClickListener(new OnClickListener() {
+		btn_pause = (Button) findViewById(R.id.btn_runningsession_pause);
+		btn_pause.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
 				if (pauseTime == 0 && started) {
 					pauseTime = SystemClock.elapsedRealtime();
-					cm.stop();
-					pause.setText(R.string.resume);
-					pleaseClick.setText(R.string.paused_infotext);
+					cm_chronoMeter.stop();
+					btn_pause.setText(R.string.resume);
+					tv_pleaseClick.setText(R.string.paused_infotext);
 				} else {
 					if (started) {
-						cm.setBase(SystemClock.elapsedRealtime()
-								- (pauseTime - cm.getBase()));
-						cm.start();
+						cm_chronoMeter.setBase(SystemClock.elapsedRealtime()
+								- (pauseTime - cm_chronoMeter.getBase()));
+						cm_chronoMeter.start();
 						pauseTime = 0;
-						pause.setText(R.string.pause);
-						pleaseClick.setText("");
+						btn_pause.setText(R.string.pause);
+						tv_pleaseClick.setText("");
 					}
 				}
 
 			}
 		});
 
-		ll = (RelativeLayout) findViewById(R.id.main_llayout_host);
+		ll = (RelativeLayout) findViewById(R.id.rl_runningsession_host);
 		ll.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
 				pb_userprogress.setProgress(0);
 				if (!started) {
 					started = true;
-					pleaseClick.setText("");
-					cm.setBase(SystemClock.elapsedRealtime());
-					cm.start();
+					tv_pleaseClick.setText("");
+					cm_chronoMeter.setBase(SystemClock.elapsedRealtime());
+					cm_chronoMeter.start();
 				} else {
 					if (pauseTime == 0) {
 
 						nextPlayer();
-						cm.setKeepScreenOn(false);
+						cm_chronoMeter.setKeepScreenOn(false);
 
 					}
 				}
 			}
 		});
-		cm.setOnChronometerTickListener(new OnChronometerTickListener() {
+		cm_chronoMeter.setOnChronometerTickListener(new OnChronometerTickListener() {
 			public void onChronometerTick(Chronometer chronometer) {
-				long time = SystemClock.elapsedRealtime() - cm.getBase();
+				long time = SystemClock.elapsedRealtime() - cm_chronoMeter.getBase();
 				Log.d("tag", "time:" + time);
 				pb_userprogress.setProgress( time < 1000 ? 0 : (int) (time + (1000 - time % 1000)));
 				Log.d("tag", pb_userprogress.getProgress() + "");
-				if (time > s.getWarnTimeOut()) {
-					cm.setTextColor(Color.RED);
-					newKeyguardLock.disableKeyguard();
+				if (time > session.getWarnTimeOut()) {
+					cm_chronoMeter.setTextColor(Color.RED);
+					keyGuardLock.disableKeyguard();
 					WakeLock screenLock = ((PowerManager) getSystemService(POWER_SERVICE))
 							.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK
 									| PowerManager.ACQUIRE_CAUSES_WAKEUP, "TAG");
 					screenLock.acquire();
 					screenLock.release();
-					cm.setKeepScreenOn(true);
+					cm_chronoMeter.setKeepScreenOn(true);
 
-					if (!mp.isPlaying())
-						mp.start();
+					if (!mp_mediaPlayer.isPlaying())
+						mp_mediaPlayer.start();
 				}
 			}
 		});
 
-		actPlayer.setText(s.getInitialPlayer().getName());
-		cm.setBase(SystemClock.elapsedRealtime());
-		cm.stop();
+		tv_userName.setText(session.getInitialPlayer().getName());
+		cm_chronoMeter.setBase(SystemClock.elapsedRealtime());
+		cm_chronoMeter.stop();
 	}
 
 	private void nextPlayer() {
-		long time = SystemClock.elapsedRealtime() - cm.getBase();
-		cm.setTextColor(Color.WHITE);
-		actPlayer.setText(s.next(time).getName());
-		cm.setBase(SystemClock.elapsedRealtime());
+		long time = SystemClock.elapsedRealtime() - cm_chronoMeter.getBase();
+		cm_chronoMeter.setTextColor(Color.WHITE);
+		tv_userName.setText(session.next(time).getName());
+		cm_chronoMeter.setBase(SystemClock.elapsedRealtime());
 	}
 
 	private void endSession() {
 		if (pauseTime != 0) {
-			cm.setBase(SystemClock.elapsedRealtime()
-					- (pauseTime - cm.getBase()));
+			cm_chronoMeter.setBase(SystemClock.elapsedRealtime()
+					- (pauseTime - cm_chronoMeter.getBase()));
 		}
-		long time = SystemClock.elapsedRealtime() - cm.getBase();
-		s.next(time);
-		cm.stop();
-		Intent statistics = IntentManager.getStatisticsIntent(this, s);
+		long time = SystemClock.elapsedRealtime() - cm_chronoMeter.getBase();
+		session.next(time);
+		cm_chronoMeter.stop();
+		Intent statistics = IntentManager.getStatisticsIntent(this, session);
 		finish();
 		startActivity(statistics);
 	}
@@ -184,7 +183,7 @@ public class RunningSessionActivity extends Activity {
 
 	@Override
 	protected void onStop() {
-		newKeyguardLock.reenableKeyguard();
+		keyGuardLock.reenableKeyguard();
 		super.onStop();
 		FlurryAgent.onEndSession(this);
 	}

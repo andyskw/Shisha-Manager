@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/main_llayout_host"
+    android:id="@+id/rl_runningsession_host"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/app_bg" >
 
     <TextView
-        android:id="@+id/tv_runningsession_name"
+        android:id="@+id/tv_runningsession_username"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -16,17 +16,17 @@
     </TextView>
 
     <Chronometer
-        android:id="@+id/chronometer1"
+        android:id="@+id/cm_runningsession_chronometer"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_runningsession_name"
+        android:layout_below="@+id/tv_runningsession_username"
         android:gravity="center_vertical|center_horizontal"
         android:text="Chronometer"
         android:textSize="26sp" >
     </Chronometer>
 
     <TextView
-        android:id="@+id/pleaseClickTextView"
+        android:id="@+id/tv_runningsession_pleaseclick_descr"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
@@ -38,6 +38,7 @@
         android:textSize="24sp" />
 
     <LinearLayout
+        android:id="@+id/ll_runningsession_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -45,7 +46,7 @@
         android:padding="15dp" >
 
         <Button
-            android:id="@+id/btn_endsession"
+            android:id="@+id/btn_runningsession_endsession"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -53,7 +54,7 @@
             android:text="@string/endsession" />
 
         <Button
-            android:id="@+id/btn_pause"
+            android:id="@+id/btn_runningsession_pause"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -61,11 +62,11 @@
     </LinearLayout>
 
     <ProgressBar
-        android:id="@+id/pb_userprogress"
+        android:id="@+id/pb_runningsession_userprogress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/chronometer1"
+        android:layout_below="@+id/cm_runningsession_chronometer"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
