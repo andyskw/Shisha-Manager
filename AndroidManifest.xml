@@ -28,14 +28,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.vilagmegvaltas.shisha.SessionSummary"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
-            android:name="com.vilagmegvaltas.shisha.Statistics"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity
             android:name="com.vilagmegvaltas.shisha.StartSessionActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
@@ -43,10 +35,6 @@
         <activity
             android:name="com.vilagmegvaltas.shisha.RunningSessionActivity"
             android:screenOrientation="portrait" >
-        </activity>
-        <activity android:name="com.vilagmegvaltas.shisha.UsageSummary" >
-        </activity>
-        <activity android:name="com.vilagmegvaltas.shisha.ShareActivity" >
         </activity>
         <activity
             android:name="com.vilagmegvaltas.shisha.SummaryActivity"
