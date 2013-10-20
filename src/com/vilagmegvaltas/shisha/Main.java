@@ -10,12 +10,14 @@ import android.os.Bundle;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.Chronometer.OnChronometerTickListener;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,6 +42,7 @@ public class Main extends Activity {
 	private boolean started = false;
 	KeyguardManager km;
 	KeyguardLock newKeyguardLock;
+	ProgressBar pb_userprogress;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -59,6 +62,9 @@ public class Main extends Activity {
 		actPlayer = (TextView) findViewById(R.id.textView1);
 		pleaseClick = (TextView) findViewById(R.id.pleaseClickTextView);
 		end_session = (Button) findViewById(R.id.btn_endsession);
+		pb_userprogress = (ProgressBar) findViewById(R.id.pb_userprogress);
+		pb_userprogress.setMax(s.getWarnTimeOut() + 1000);
+		pb_userprogress.setProgress(0);
 		end_session.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
@@ -94,6 +100,7 @@ public class Main extends Activity {
 		ll.setOnClickListener(new OnClickListener() {
 
 			public void onClick(View v) {
+				pb_userprogress.setProgress(0);
 				if (!started) {
 					started = true;
 					pleaseClick.setText("");
@@ -112,6 +119,9 @@ public class Main extends Activity {
 		cm.setOnChronometerTickListener(new OnChronometerTickListener() {
 			public void onChronometerTick(Chronometer chronometer) {
 				long time = SystemClock.elapsedRealtime() - cm.getBase();
+				Log.d("tag", "time:" + time);
+				pb_userprogress.setProgress( time < 1000 ? 0 : (int) (time + (1000 - time % 1000)));
+				Log.d("tag", pb_userprogress.getProgress() + "");
 				if (time > s.getWarnTimeOut()) {
 					cm.setTextColor(Color.RED);
 					newKeyguardLock.disableKeyguard();
@@ -165,9 +175,6 @@ public class Main extends Activity {
 
 		return super.onKeyDown(keyCode, event);
 	}
-
-	
-	
 
 	@Override
 	protected void onStart() {

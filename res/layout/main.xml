@@ -60,4 +60,16 @@
             android:text="@string/pause" />
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/pb_userprogress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chronometer1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/progressbar" />
+
 </RelativeLayout>
