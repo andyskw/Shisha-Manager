@@ -17,7 +17,7 @@
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.NoTitleBar" >
         <activity
-            android:name=".SplashScreenActivity"
+            android:name="com.vilagmegvaltas.shisha.SplashScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
@@ -32,21 +32,25 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".Statistics"
+            android:name="com.vilagmegvaltas.shisha.Statistics"
             android:screenOrientation="portrait" >
         </activity>
         <activity
-            android:name=".StartSessionActivity"
+            android:name="com.vilagmegvaltas.shisha.StartSessionActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan" >
         </activity>
         <activity
-            android:name=".RunningSessionActivity"
+            android:name="com.vilagmegvaltas.shisha.RunningSessionActivity"
             android:screenOrientation="portrait" >
         </activity>
         <activity android:name="com.vilagmegvaltas.shisha.UsageSummary" >
         </activity>
-        <activity android:name=".ShareActivity" >
+        <activity android:name="com.vilagmegvaltas.shisha.ShareActivity" >
+        </activity>
+        <activity
+            android:name="com.vilagmegvaltas.shisha.SummaryActivity"
+            android:label="@string/title_activity_summary" >
         </activity>
     </application>
 
