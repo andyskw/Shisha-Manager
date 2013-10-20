@@ -8,19 +8,21 @@
         android:id="@+id/tv_share_texttoshare"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/et_share_sharetext"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="82dp"
-        android:text="@string/sharetext" />
+        android:text="@string/sharetext"
+        android:textAppearance="@android:style/TextAppearance.Large" />
 
     <EditText
         android:id="@+id/et_share_sharetext"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/tv_share_texttoshare"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"
         android:ems="10"
+        android:gravity="top"
+        android:minHeight="100dp"
+        android:selectAllOnFocus="true"
         android:text="@string/textshareDefault" />
 
     <CheckBox
@@ -33,11 +35,21 @@
 
     <Button
         android:id="@+id/btn_share_share"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="15dp"
+        android:text="@string/share" />
+
+    <ImageView
+        android:id="@+id/iv_share_shareimage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_share_share"
         android:layout_below="@+id/cb_share_uploadimage"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="@string/share" />
+        android:scaleType="centerInside"
+        android:src="@drawable/app_bg"
+        android:visibility="invisible" />
 
 </RelativeLayout>

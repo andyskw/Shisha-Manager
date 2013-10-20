@@ -1,7 +1,5 @@
 package com.vilagmegvaltas.shisha.fragments;
 
-import java.io.ByteArrayOutputStream;
-
 import org.brickred.socialauth.android.DialogListener;
 import org.brickred.socialauth.android.SocialAuthAdapter;
 import org.brickred.socialauth.android.SocialAuthAdapter.Provider;
@@ -9,8 +7,6 @@ import org.brickred.socialauth.android.SocialAuthError;
 import org.brickred.socialauth.android.SocialAuthListener;
 
 import android.graphics.Bitmap;
-import android.graphics.Bitmap.CompressFormat;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,7 +16,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.vilagmegvaltas.shisha.R;
@@ -30,6 +29,8 @@ public class ShareFragment extends Fragment {
 	private SocialAuthAdapter adapter;
 	private CheckBox uploadImage;
 	private EditText shareText;
+	private ImageView shareimage;
+	Bitmap shareImageBitmap;
 
 	public static Fragment newInstance() {
 		return new ShareFragment();
@@ -44,7 +45,9 @@ public class ShareFragment extends Fragment {
 		Button share = (Button) v.findViewById(R.id.btn_share_share);
 		uploadImage = (CheckBox) v.findViewById(R.id.cb_share_uploadimage);
 		shareText = (EditText) v.findViewById(R.id.et_share_sharetext);
-
+		shareimage = (ImageView) v.findViewById(R.id.iv_share_shareimage);
+		share.setText("Share");
+		share.setTextColor(Color.WHITE);
 		// share.setBackgroundResource(R.drawable.button_gradient);
 
 		// Add it to Library
@@ -57,6 +60,21 @@ public class ShareFragment extends Fragment {
 		adapter.addProviderName(Provider.TWITTER, "Twitter");
 		// Enable Provider
 		adapter.enable(share);
+
+		uploadImage.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView,
+					boolean isChecked) {
+				if (isChecked) {
+					shareimage.setImageBitmap(getChartImage());
+					shareimage.setVisibility(View.VISIBLE);
+				} else {
+					shareimage.setVisibility(View.INVISIBLE);
+				}
+
+			}
+		});
 		return v;
 	}
 
@@ -68,24 +86,13 @@ public class ShareFragment extends Fragment {
 						+ " - #shishamanager", new MessageListener(), false);
 			} else {
 				try {
-					String tag = ((SummaryActivity) getActivity())
-							.getChartFragmentIdentifier();
-					ChartSummaryFragment f = (ChartSummaryFragment) getActivity()
-							.getSupportFragmentManager().findFragmentByTag(tag);
-
-					Bitmap receivedImage = f.getChartBitmap();
-					ByteArrayOutputStream bos = new ByteArrayOutputStream();
-
-					receivedImage.compress(CompressFormat.JPEG, 70, bos);
-					byte[] imageBytes = bos.toByteArray();
-					Bitmap jpegImage = BitmapFactory.decodeByteArray(
-							imageBytes, 0, imageBytes.length);
 					adapter.uploadImageAsync(shareText.getText().toString()
 							+ " - #shishamanager", "shishaztunk.jpg",
-							jpegImage, 100, new MessageListener());
+							getChartImage(), 100, new MessageListener());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
+
 			}
 		}
 
@@ -106,6 +113,18 @@ public class ShareFragment extends Fragment {
 
 		}
 
+	}
+
+	private Bitmap getChartImage() {
+		if (shareImageBitmap == null) {
+			String tag = ((SummaryActivity) getActivity())
+					.getChartFragmentIdentifier();
+			ChartSummaryFragment f = (ChartSummaryFragment) getActivity()
+					.getSupportFragmentManager().findFragmentByTag(tag);
+
+			shareImageBitmap = f.getChartBitmap();
+		}
+		return shareImageBitmap;
 	}
 
 	// To get status of message after authentication

@@ -46,28 +46,19 @@ public class SessionSummaryFragment extends Fragment {
 		ListView lv = (ListView) v.findViewById(R.id.sessionlist);
 		lv.setAdapter(new SummaryAdapter(getActivity(), R.layout.session_item,
 				session.getPlayers()));
-		final LinearLayout ll = (LinearLayout) v
-				.findViewById(R.id.session_summary_host);
-		ll.getViewTreeObserver().addOnGlobalLayoutListener(
-				new OnGlobalLayoutListener() {
-
-					@Override
-					public void onGlobalLayout() {
-						View z = ll.getRootView();
-						z.setDrawingCacheEnabled(true);
-						z.buildDrawingCache(true);
-						Bitmap x = z.getDrawingCache();
-
-						Intent share = null;// = (Intent)
-											// getArguments().get("share");
-						if (share != null)
-							share.putExtra("session_summary", x);
-						else
-							Log.w(getClass().getName(), "share extra null");
-
-					}
-				});
-
+		// session summary bitmap creator not in use
+		/*
+		 * final LinearLayout ll = (LinearLayout) v
+		 * .findViewById(R.id.session_summary_host);
+		 * ll.getViewTreeObserver().addOnGlobalLayoutListener( new
+		 * OnGlobalLayoutListener() {
+		 * 
+		 * @Override public void onGlobalLayout() { View z = ll.getRootView();
+		 * z.setDrawingCacheEnabled(true); z.buildDrawingCache(true); Bitmap x =
+		 * z.getDrawingCache();
+		 * 
+		 * } });
+		 */
 		FlurryAgent.logEvent("SessionSummary viewed");
 
 		return v;
