@@ -3,4 +3,5 @@
     <color name="maingreen">#345851</color>
     <color name="darkgreen">#26403B</color>
     <color name="halfTransparent">#9026403B</color>
+    <color name="buttonTextColor">#dddddd</color>
 </resources>
