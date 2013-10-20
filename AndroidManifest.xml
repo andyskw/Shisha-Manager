@@ -44,10 +44,6 @@
             android:name=".Main"
             android:screenOrientation="portrait" >
         </activity>
-        <activity
-            android:name=".Donate"
-            android:screenOrientation="portrait" >
-        </activity>
         <activity android:name="com.vilagmegvaltas.shisha.UsageSummary" >
         </activity>
         <activity android:name=".Share" >
