@@ -12,11 +12,12 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.LinearLayout.LayoutParams;
 
 public class DonateNotifier {
 
     private static final String PAYPAL_LINK = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=TY47JH5LK3AT8&lc=HU&item_name=Shisha%20Manager%20Donation&item_number=evogochi_donate&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted";
-    
+    private static LayoutParams buttonLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
     private final static int LAUNCHES_UNTIL_PROMPT = 20;
     
     public static void app_launched(Context mContext) {
@@ -60,6 +61,7 @@ public class DonateNotifier {
         ll.addView(tv);
         
         Button btn_donate = new Button(mContext);
+        setButtonLayout(btn_donate);
         btn_donate.setText(mContext.getString(R.string.donate_button_donate));
         btn_donate.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -72,6 +74,7 @@ public class DonateNotifier {
         ll.addView(btn_donate);
 
         Button btn_remindMe = new Button(mContext);
+        setButtonLayout(btn_remindMe);
         btn_remindMe.setText(mContext.getString(R.string.donate_button_remind_later));
         btn_remindMe.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -83,6 +86,7 @@ public class DonateNotifier {
         ll.addView(btn_remindMe);
 
         Button btn_noThanks = new Button(mContext);
+        setButtonLayout(btn_noThanks);
         btn_noThanks.setText(mContext.getString(R.string.donate_button_no_thanks));
         btn_noThanks.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -97,5 +101,15 @@ public class DonateNotifier {
 
         dialog.setContentView(ll);        
         dialog.show();        
+    }
+    
+    private static void setButtonLayout(Button b) {
+    	
+    	b.setBackgroundResource(R.drawable.green_button);
+    	b.setPadding(10, 20, 10, 20);
+    	b.setTextColor(b.getContext().getResources().getColor(R.color.buttonTextColor));
+    	
+    	b.setTextAppearance(b.getContext(), android.R.style.TextAppearance);
+    	b.setLayoutParams(buttonLayoutParams);
     }
 }

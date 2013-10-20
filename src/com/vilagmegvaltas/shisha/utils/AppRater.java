@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
 import com.vilagmegvaltas.shisha.R;
@@ -20,7 +21,7 @@ public class AppRater {
     
 
     private final static int LAUNCHES_UNTIL_PROMPT = 10;
-    
+    private static LayoutParams buttonLayoutParams = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
     public static void app_launched(Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("apprater", 0);
         if (prefs.getBoolean("dontshowagain", false)) { return ; }
@@ -60,9 +61,12 @@ public class AppRater {
         tv.setWidth(300);
         tv.setPadding(4, 0, 4, 10);
         ll.addView(tv);
+        buttonLayoutParams.setMargins(10, 5, 10, 5);
+        
         
         Button btn_rate = new Button(mContext);
         btn_rate.setText(mContext.getString(R.string.rate_button_rate));
+        setButtonLayout(btn_rate);
         btn_rate.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
             	editor.putBoolean("dontshowagain", true);
@@ -74,6 +78,7 @@ public class AppRater {
         ll.addView(btn_rate);
 
         Button btn_remindLater = new Button(mContext);
+        setButtonLayout(btn_remindLater);
         btn_remindLater.setText(mContext.getString(R.string.rate_button_remind_later));
         btn_remindLater.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -85,6 +90,7 @@ public class AppRater {
         ll.addView(btn_remindLater);
 
         Button btn_noThanks = new Button(mContext);
+        setButtonLayout(btn_noThanks);
         btn_noThanks.setText(mContext.getString(R.string.rate_button_no_thanks));
         btn_noThanks.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -99,5 +105,15 @@ public class AppRater {
 
         dialog.setContentView(ll);        
         dialog.show();        
+    }
+    
+    private static void setButtonLayout(Button b) {
+    	
+    	b.setBackgroundResource(R.drawable.green_button);
+    	b.setPadding(10, 20, 10, 20);
+    	b.setTextColor(b.getContext().getResources().getColor(R.color.buttonTextColor));
+    	
+    	b.setTextAppearance(b.getContext(), android.R.style.TextAppearance);
+    	b.setLayoutParams(buttonLayoutParams);
     }
 }
