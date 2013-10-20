@@ -168,16 +168,7 @@ public class Main extends Activity {
 
 	
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.menu_donate:
-			startActivity(new Intent(Main.this, Donate.class));
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+
 	
 	@Override
 	protected void onStart() {

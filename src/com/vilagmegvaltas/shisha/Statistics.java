@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.flurry.android.FlurryAgent;
 import com.vilagmegvaltas.shisha.entities.Session;
+import com.vilagmegvaltas.shisha.utils.DonateNotifier;
 import com.vilagmegvaltas.shisha.utils.FlurryAPIKeyContainer;
 import com.vilagmegvaltas.shisha.utils.IntentManager;
 
@@ -42,7 +43,7 @@ public class Statistics extends TabActivity {
 		setupTab(new TextView(this), getString(R.string.statistics), R.drawable.statistics, sessionSummary );
 		setupTab(new TextView(this), getString(R.string.usageRounds), R.drawable.graph, usageSummaryIntent);
 		setupTab(new TextView(this), getString(R.string.share), R.drawable.share, share);
-
+		DonateNotifier.app_launched(this);
 	}
 	
 	@Override
@@ -90,22 +91,7 @@ public class Statistics extends TabActivity {
 	    return super.onKeyDown(keyCode, event);
 	}
 	
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		getMenuInflater().inflate(R.menu.menu_main, menu);
-		return true;
-	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.menu_donate:
-			startActivity(new Intent(Statistics.this, Donate.class));
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
 	
 	@Override
 	protected void onStart() {

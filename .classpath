@@ -8,5 +8,6 @@
 	<classpathentry exported="true" kind="lib" path="lib/Flurry_3.2.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/socialauth-4.3.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/socialauth-android-3.0.jar"/>
+	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

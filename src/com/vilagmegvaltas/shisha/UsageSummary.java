@@ -95,7 +95,7 @@ public class UsageSummary extends AbstractChart {
 		List<Player> players = s.getPlayers();
 		String[] titles = new String[players.size()];
 		int i = 0;
-		for (Player p : players) {
+		for (Player p : players) {	
 			titles[i++] = p.getName();
 		}
 		;

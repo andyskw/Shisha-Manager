@@ -112,16 +112,7 @@ public class SessionSummary extends Activity {
 		return true;
 	}
 	
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		switch (item.getItemId()) {
-		case R.id.menu_donate:
-			startActivity(new Intent(SessionSummary.this, Donate.class));
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-	}
+
 
 	@Override
 	protected void onStart() {
