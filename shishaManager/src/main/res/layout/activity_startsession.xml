@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_startsession_host"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/tv_startsession_newsession"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginTop="15dp"
+        android:text="@string/newsession"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <LinearLayout
+        android:id="@+id/ll_startsession_adduser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/rl_startsession_timeout"
+        android:background="#50000000"
+        android:padding="10dp" >
+
+        <EditText
+            android:id="@+id/et_startsession_newusername"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3.40"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <Button
+            android:id="@+id/btn_startsession_adduser"
+            style="@style/greenbutton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="3"
+            android:text="@string/adduser" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_startsession_adduser_descr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/ll_startsession_adduser"
+        android:background="#50000000"
+        android:padding="10dp"
+        android:text="@string/adduser_helptext"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <RelativeLayout
+        android:id="@+id/rl_startsession_timeout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <TextView
+            android:id="@+id/tv_startsession_timeout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="#90000000"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:text="@string/timeouttext"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/tv_startsession_timeout_descr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_startsession_timeout"
+            android:background="#90000000"
+            android:padding="10dp"
+            android:text="@string/timeouthelp"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <LinearLayout
+            android:id="@+id/ll_startsession_timeout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_startsession_timeout_descr"
+            android:background="#90000000"
+            android:paddingBottom="15dp" >
+
+            <EditText
+                android:id="@+id/et_startsession_timeout"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:digits="0123456789"
+                android:ems="10"
+                android:inputType="number"
+                android:maxLength="3"
+                android:text="@string/defaulttimeout" />
+
+            <TextView
+                android:id="@+id/tv_startsession_timeout_seconds"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12sp"
+                android:layout_marginRight="12sp"
+                android:layout_weight="2"
+                android:text="@string/seconds" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/lv_startsession_userlist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/tv_startsession_adduser_descr"
+        android:layout_below="@+id/tv_startsession_newsession"
+        android:background="#50000000"
+        android:cacheColorHint="#0000"
+        android:clickable="false"
+        android:padding="10dp" >
+    </ListView>
+
+    <Button
+        android:id="@+id/btn_startsession_start"
+        style="@style/greenbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="15dp"
+        android:layout_marginRight="20dp"
+        android:text="@string/button_startsession"
+        android:textAppearance="@android:style/TextAppearance.Large" />
+
+</RelativeLayout>

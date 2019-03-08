@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_runningsession_host"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/app_bg" >
+
+    <TextView
+        android:id="@+id/tv_runningsession_username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="TextView"
+        android:textSize="45sp" >
+    </TextView>
+
+    <Chronometer
+        android:id="@+id/cm_runningsession_chronometer"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_runningsession_username"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Chronometer"
+        android:textSize="26sp" >
+    </Chronometer>
+
+    <TextView
+        android:id="@+id/tv_runningsession_pleaseclick_descr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#90000000"
+        android:gravity="bottom"
+        android:padding="10dp"
+        android:text="@string/pleaseclick"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_runningsession_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#30000000"
+        android:padding="15dp" >
+
+        <Button
+            style="@style/greenbutton"
+            android:id="@+id/btn_runningsession_endsession"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="endSession"
+            android:text="@string/endsession" />
+
+        <Button
+            style="@style/greenbutton"
+            android:id="@+id/btn_runningsession_pause"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/pause" />
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/pb_runningsession_userprogress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cm_runningsession_chronometer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/progressbar" />
+
+</RelativeLayout>

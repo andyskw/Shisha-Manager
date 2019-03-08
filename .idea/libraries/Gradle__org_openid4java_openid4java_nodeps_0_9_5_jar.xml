@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: org.openid4java:openid4java-nodeps:0.9.5@jar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openid4java/openid4java-nodeps/0.9.5/1c176b807238490fcda9c3b1204c83b84997bec2/openid4java-nodeps-0.9.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openid4java/openid4java-nodeps/0.9.5/7564eb28795307ce99c2c7b788994ac4276d1f2b/openid4java-nodeps-0.9.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

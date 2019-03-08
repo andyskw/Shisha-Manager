@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.flurry.android:analytics:11.4.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/analytics-11.4.0.aar/1b4c6d59ead774bc67a5cf2e5d975ad1/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/analytics-11.4.0.aar/1b4c6d59ead774bc67a5cf2e5d975ad1/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

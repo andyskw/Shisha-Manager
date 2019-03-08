@@ -1,0 +1,207 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Manifest Merging:
+-----------------
+Your project uses libraries that provide manifests, and your Eclipse
+project did not explicitly turn on manifest merging. In Android Gradle
+projects, manifests are always merged (meaning that contents from your
+libraries' manifests will be merged into the app manifest. If you had
+manually copied contents from library manifests into your app manifest
+you may need to remove these for the app to build correctly.
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+From Shisha Manager:
+* .gitignore
+* .idea/
+* .idea/workspace.xml
+* build.gradle
+* default.properties
+* external_res/
+* external_res/background.jpg
+* external_res/background_480_800_orig.png
+* gradle/
+* gradle/wrapper/
+* gradle/wrapper/gradle-wrapper.jar
+* gradle/wrapper/gradle-wrapper.properties
+* gradlew
+* gradlew.bat
+* lib/
+* lib/Flurry_3.2.1.jar
+* lib/achartengine-1.1.0.jar
+* lib/socialauth-4.3.jar
+* lib/socialauth-android-3.0.jar
+* library/
+* library/build.gradle
+* library/src/
+* library/src/main/
+* library/src/main/AndroidManifest.xml
+* library/src/main/java/
+* library/src/main/java/com/
+* library/src/main/java/com/viewpagerindicator/
+* library/src/main/java/com/viewpagerindicator/CirclePageIndicator.java
+* library/src/main/java/com/viewpagerindicator/IconPageIndicator.java
+* library/src/main/java/com/viewpagerindicator/IconPagerAdapter.java
+* library/src/main/java/com/viewpagerindicator/IcsLinearLayout.java
+* library/src/main/java/com/viewpagerindicator/LinePageIndicator.java
+* library/src/main/java/com/viewpagerindicator/PageIndicator.java
+* library/src/main/java/com/viewpagerindicator/TabPageIndicator.java
+* library/src/main/java/com/viewpagerindicator/TitlePageIndicator.java
+* library/src/main/java/com/viewpagerindicator/UnderlinePageIndicator.java
+* library/src/main/res/
+* library/src/main/res/color/
+* library/src/main/res/color/vpi__dark_theme.xml
+* library/src/main/res/color/vpi__light_theme.xml
+* library/src/main/res/drawable-hdpi/
+* library/src/main/res/drawable-hdpi/vpi__tab_selected_focused_holo.9.png
+* library/src/main/res/drawable-hdpi/vpi__tab_selected_holo.9.png
+* library/src/main/res/drawable-hdpi/vpi__tab_selected_pressed_holo.9.png
+* library/src/main/res/drawable-hdpi/vpi__tab_unselected_focused_holo.9.png
+* library/src/main/res/drawable-hdpi/vpi__tab_unselected_holo.9.png
+* library/src/main/res/drawable-hdpi/vpi__tab_unselected_pressed_holo.9.png
+* library/src/main/res/drawable-mdpi/
+* library/src/main/res/drawable-mdpi/vpi__tab_selected_focused_holo.9.png
+* library/src/main/res/drawable-mdpi/vpi__tab_selected_holo.9.png
+* library/src/main/res/drawable-mdpi/vpi__tab_selected_pressed_holo.9.png
+* library/src/main/res/drawable-mdpi/vpi__tab_unselected_focused_holo.9.png
+* library/src/main/res/drawable-mdpi/vpi__tab_unselected_holo.9.png
+* library/src/main/res/drawable-mdpi/vpi__tab_unselected_pressed_holo.9.png
+* library/src/main/res/drawable-xhdpi/
+* library/src/main/res/drawable-xhdpi/vpi__tab_selected_focused_holo.9.png
+* library/src/main/res/drawable-xhdpi/vpi__tab_selected_holo.9.png
+* library/src/main/res/drawable-xhdpi/vpi__tab_selected_pressed_holo.9.png
+* library/src/main/res/drawable-xhdpi/vpi__tab_unselected_focused_holo.9.png
+* library/src/main/res/drawable-xhdpi/vpi__tab_unselected_holo.9.png
+* library/src/main/res/drawable-xhdpi/vpi__tab_unselected_pressed_holo.9.png
+* library/src/main/res/drawable/
+* library/src/main/res/drawable/vpi__tab_indicator.xml
+* library/src/main/res/values/
+* library/src/main/res/values/vpi__attrs.xml
+* library/src/main/res/values/vpi__colors.xml
+* library/src/main/res/values/vpi__defaults.xml
+* library/src/main/res/values/vpi__styles.xml
+* proguard.cfg
+* settings.gradle
+* shishaManager/
+* shishaManager/build.gradle
+* shishaManager/src/
+* shishaManager/src/main/
+* shishaManager/src/main/AndroidManifest.xml
+* shishaManager/src/main/assets/
+* shishaManager/src/main/assets/oauth_consumer.properties
+* shishaManager/src/main/java/
+* shishaManager/src/main/java/com/
+* shishaManager/src/main/java/com/vilagmegvaltas/
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/RunningSessionActivity.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/SplashScreenActivity.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/StartSessionActivity.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/SummaryActivity.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/adapters/
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/adapters/SummaryFragmentPagerAdapter.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/charts/
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/charts/AbstractChart.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/entities/
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/entities/Player.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/entities/Session.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/fragments/
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/fragments/ChartSummaryFragment.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/fragments/SessionSummaryFragment.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/fragments/ShareFragment.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/utils/
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/utils/AppRater.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/utils/DonateNotifier.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/utils/FlurryAPIKeyContainer.java
+* shishaManager/src/main/java/com/vilagmegvaltas/shisha/utils/IntentManager.java
+* shishaManager/src/main/res/
+* shishaManager/src/main/res/drawable-hdpi/
+* shishaManager/src/main/res/drawable-hdpi/app_bg.png
+* shishaManager/src/main/res/drawable-hdpi/background_480_800_test3.png
+* shishaManager/src/main/res/drawable-hdpi/icon_new.png
+* shishaManager/src/main/res/drawable-ldpi/
+* shishaManager/src/main/res/drawable-ldpi/icon_new.png
+* shishaManager/src/main/res/drawable-mdpi/
+* shishaManager/src/main/res/drawable-mdpi/icon_new.png
+* shishaManager/src/main/res/drawable-nodpi/
+* shishaManager/src/main/res/drawable-nodpi/button_clicked.9.png
+* shishaManager/src/main/res/drawable-nodpi/button_default.9.png
+* shishaManager/src/main/res/drawable-nodpi/facebook.png
+* shishaManager/src/main/res/drawable-nodpi/twitter.png
+* shishaManager/src/main/res/drawable/
+* shishaManager/src/main/res/drawable/green_button.xml
+* shishaManager/src/main/res/drawable/progressbar.xml
+* shishaManager/src/main/res/layout/
+* shishaManager/src/main/res/layout/activity_runningsession.xml
+* shishaManager/src/main/res/layout/activity_share.xml
+* shishaManager/src/main/res/layout/activity_splashscreen.xml
+* shishaManager/src/main/res/layout/activity_startsession.xml
+* shishaManager/src/main/res/layout/activity_summary.xml
+* shishaManager/src/main/res/layout/session_chart.xml
+* shishaManager/src/main/res/layout/session_item.xml
+* shishaManager/src/main/res/layout/session_summary.xml
+* shishaManager/src/main/res/layout/statistics.xml
+* shishaManager/src/main/res/layout/tabs_bg.xml
+* shishaManager/src/main/res/menu/
+* shishaManager/src/main/res/menu/menu_main.xml
+* shishaManager/src/main/res/raw/
+* shishaManager/src/main/res/raw/timeout.wav
+* shishaManager/src/main/res/values-hu/
+* shishaManager/src/main/res/values-hu/strings.xml
+* shishaManager/src/main/res/values-sw600dp/
+* shishaManager/src/main/res/values-sw600dp/dimens.xml
+* shishaManager/src/main/res/values-sw720dp-land/
+* shishaManager/src/main/res/values-sw720dp-land/dimens.xml
+* shishaManager/src/main/res/values/
+* shishaManager/src/main/res/values/colors.xml
+* shishaManager/src/main/res/values/dimens.xml
+* shishaManager/src/main/res/values/strings.xml
+* shishaManager/src/main/res/values/styles.xml
+From library:
+* pom.xml
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:18.0.0
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+In library:
+* AndroidManifest.xml => library/src/main/AndroidManifest.xml
+* res/ => library/src/main/res/
+* src/ => library/src/main/java/
+In Shisha Manager:
+* AndroidManifest.xml => shishaManager/src/main/AndroidManifest.xml
+* assets/ => shishaManager/src/main/assets/
+* res/ => shishaManager/src/main/res/
+* src/ => shishaManager/src/main/java/
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)
